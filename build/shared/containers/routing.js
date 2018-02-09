@@ -14,54 +14,50 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var NavRoute = function NavRoute() {
 	return _react2.default.createElement(
-		_reactRouterDom.BrowserRouter,
+		'div',
 		null,
 		_react2.default.createElement(
-			'div',
+			'ul',
 			null,
 			_react2.default.createElement(
-				'ul',
+				'li',
 				null,
 				_react2.default.createElement(
-					'li',
-					null,
-					_react2.default.createElement(
-						_reactRouterDom.Link,
-						{ to: '/' },
-						'Home'
-					)
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					_react2.default.createElement(
-						_reactRouterDom.Link,
-						{ to: '/dist/about-us' },
-						'About us'
-					)
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					_react2.default.createElement(
-						_reactRouterDom.Link,
-						{ to: '/topics' },
-						'Topics'
-					)
+					_reactRouterDom.Link,
+					{ to: '/' },
+					'Home'
 				)
 			),
-			_react2.default.createElement('hr', null),
-			_react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/dist', render: function render() {
-					return _react2.default.createElement(
-						'div',
-						null,
-						'Please click on above link'
-					);
-				} }),
-			_react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: Home }),
-			_react2.default.createElement(_reactRouterDom.Route, { path: '/dist/about-us', component: Aboutus }),
-			_react2.default.createElement(_reactRouterDom.Route, { path: '/topics', component: Topics })
-		)
+			_react2.default.createElement(
+				'li',
+				null,
+				_react2.default.createElement(
+					_reactRouterDom.Link,
+					{ to: '/dist/about-us' },
+					'About us'
+				)
+			),
+			_react2.default.createElement(
+				'li',
+				null,
+				_react2.default.createElement(
+					_reactRouterDom.Link,
+					{ to: '/topics' },
+					'Topics'
+				)
+			)
+		),
+		_react2.default.createElement('hr', null),
+		_react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/dist', render: function render() {
+				return _react2.default.createElement(
+					'div',
+					null,
+					'Please click on above link'
+				);
+			} }),
+		_react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: Home }),
+		_react2.default.createElement(_reactRouterDom.Route, { path: '/dist/about-us', component: Aboutus }),
+		_react2.default.createElement(_reactRouterDom.Route, { path: '/topics', component: Topics })
 	);
 },
     Home = function Home() {
@@ -82,7 +78,7 @@ var NavRoute = function NavRoute() {
 	var match = _ref.match;
 
 	return _react2.default.createElement(
-		_reactRouterDom.BrowserRouter,
+		Router,
 		null,
 		_react2.default.createElement(
 			'div',

@@ -11,7 +11,7 @@
  //import cors from 'cors';
  
  const routes = [],
- server= express(),
+ server= express(),	
  dir = path.join(__dirname,'../../'),
  assets = express.static(dir);
  
@@ -21,7 +21,8 @@
 
  server.get('/',(req, res)=>{
 
-	const context = {}, appString = renderToString( 
+	const context = {}, 
+	appString = renderToString( 
 	<StaticRouter location={req.url} context={context}>
   		<App/> 
   	</StaticRouter>);
@@ -44,6 +45,6 @@
 	    
 	  }
 	});
- server.listen(3000, ()=>console.log('app listening at port 3000'));
+ server.listen(3001, ()=>console.log('app listening at port 3001'));
  
  //c:\Repositories\dev\build\dist

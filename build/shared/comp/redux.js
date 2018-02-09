@@ -32,9 +32,11 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _routing = require('../containers/routing');
 
-//import NavRoute from '../containers/routing';
+var _routing2 = _interopRequireDefault(_routing);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var allReducers = (0, _redux.combineReducers)({ users: _users2.default, currentUser: _selectedUser2.default });
 var allReducers1 = function allReducers1() {
@@ -92,7 +94,8 @@ var ReactApp = function ReactApp(props) {
 					null,
 					'Routing Navigation'
 				)
-			)
+			),
+			_react2.default.createElement(_routing2.default, null)
 		)
 	);
 };

@@ -1,10 +1,9 @@
 ﻿import React, {Component} from 'react';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import {Route, Link} from 'react-router-dom';
 
 
 var NavRoute = ()=>{
-	return <Router>
-				<div>
+	    return <div>
 					<ul>
 						<li><Link to="/">Home</Link></li>
 						<li><Link to="/dist/about-us">About us</Link></li>
@@ -18,7 +17,7 @@ var NavRoute = ()=>{
 					<Route path="/dist/about-us" component={Aboutus}/>
 					<Route path="/topics" component={Topics}/>
 				</div>
-			</Router>
+			
 	
 }, Home=()=>(<div>Home info</div>),
 

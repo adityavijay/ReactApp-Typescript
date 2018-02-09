@@ -70,8 +70,8 @@ server.get('/', function (req, res) {
     }));
   }
 });
-server.listen(3000, function () {
-  return console.log('app listening at port 3000');
+server.listen(3001, function () {
+  return console.log('app listening at port 3001');
 });
 
 //c:\Repositories\dev\build\dist

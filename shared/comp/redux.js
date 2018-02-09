@@ -7,7 +7,7 @@ import {Provider} from 'react-redux';
 import UserList from '../containers/userList';
 import SelectedUser from '../containers/selectedUser';
 import PropTypes from 'prop-types';
-//import NavRoute from '../containers/routing';
+import NavRoute from '../containers/routing';
 
 const allReducers = combineReducers({users: userReducer, currentUser: selectedUserReducer});
 const allReducers1 = (state={},action)=>{
@@ -35,7 +35,8 @@ var ReactApp=(props)=>{
 			<br/>
 			<div>Selected User</div>
 			<SelectedUser/>
-			<p><b>Routing Navigation</b></p>		
+			<p><b>Routing Navigation</b></p>	
+			<NavRoute/>			
 		</div>	
 	</Provider>			
 };

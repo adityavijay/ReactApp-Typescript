@@ -4,6 +4,10 @@
  import {BrowserRouter as Router} from 'react-router-dom';
  
  //var P = ()=>{return <div><div>hello<div></div>}
+class RoutingApplication extends React.Component{
+	render(){
+		return (<Router><App {...this.props}/></Router>);
+	}
+}
 
-
- render(<App/>, document.getElementById('root'));
+ render(<RoutingApplication/>, document.getElementById('root'));
