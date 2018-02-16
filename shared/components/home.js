@@ -11,8 +11,8 @@ export default class Home extends Component{
 
 	render(){
 		return(<div className="container">
-			   <div><Header className="Hello"/></div>
-			   <div>{this.props.children}</div>
+			   <Header className="m-nav"/>
+			   <div className="m-content">{this.props.children}</div>
 			</div>);
 	}	
 }

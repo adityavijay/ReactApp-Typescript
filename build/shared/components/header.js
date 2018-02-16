@@ -12,10 +12,10 @@ var _reactRouterDom = require('react-router-dom');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = function () {
+exports.default = function (props) {
 				return _react2.default.createElement(
 								'div',
-								null,
+								props,
 								_react2.default.createElement(
 												'ul',
 												null,

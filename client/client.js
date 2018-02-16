@@ -4,10 +4,10 @@
  import {BrowserRouter as Router, browserHistory, HashRouter} from 'react-router-dom';
  import '../shared/css/global.less';
  
- //var P = ()=>{return <div><div>hello<div></div>}
+ 
 class RoutingApplication extends React.Component{
 	render(){
-		return (<HashRouter history={browserHistory}><App {...this.props}/></HashRouter>);
+		return (<HashRouter><App {...this.props}/></HashRouter>);
 	}
 }
 ReactDOM.render(<RoutingApplication/>, document.getElementById('root'));

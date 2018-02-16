@@ -41,14 +41,10 @@ var Home = function (_Component) {
 			return _react2.default.createElement(
 				'div',
 				{ className: 'container' },
+				_react2.default.createElement(_header2.default, { className: 'm-nav' }),
 				_react2.default.createElement(
 					'div',
-					null,
-					_react2.default.createElement(_header2.default, { className: 'Hello' })
-				),
-				_react2.default.createElement(
-					'div',
-					null,
+					{ className: 'm-content' },
 					this.props.children
 				)
 			);
