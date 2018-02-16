@@ -43,6 +43,7 @@ var Routes = function (_Component) {
 						return _react2.default.createElement(
 							_home2.default,
 							null,
+							_react2.default.createElement(_reactRouter.Route, { exact: true, path: '/', component: Initial }),
 							_react2.default.createElement(_reactRouter.Route, { path: '/aboutUs', render: function render() {
 									return _react2.default.createElement(
 										'div',
@@ -74,3 +75,13 @@ var Routes = function (_Component) {
 }(_react.Component);
 
 exports.default = Routes;
+
+
+function Initial() {
+
+	return _react2.default.createElement(
+		'div',
+		null,
+		'Hello Aditya'
+	);
+}

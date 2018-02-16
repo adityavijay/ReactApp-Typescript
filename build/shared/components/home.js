@@ -49,11 +49,6 @@ var Home = function (_Component) {
 				_react2.default.createElement(
 					'div',
 					null,
-					_react2.default.createElement(_content2.default, null)
-				),
-				_react2.default.createElement(
-					'div',
-					null,
 					this.props.children
 				)
 			);
