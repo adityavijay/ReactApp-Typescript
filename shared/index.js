@@ -13,7 +13,7 @@
  // import './css/global.css';
  // import './css/global.less';
  
-
+/*
 export default function(){
 	
 	//clk1();
@@ -39,4 +39,7 @@ export default function(){
 		
     return <div className="less"><Clock/><logInControl.LogInControl/><br/><temp.TemperatureConverter/><br/><HOC.SumFinal/><br/><HOC.SubFinal ad="qwe"/><br/><PT.FilterableProductTable/><App/><div className="test">CSS testing</div><Comp/><p className="test">Hello Less</p>{ListItem}{ React.createElement('div','','hello aditya')}{React.createElement('p',{width:100},'Hello P')}{ Frag}</div>
 	
-} 
+} */
+import Routes from './components/route.js';
+
+export default ()=><Routes/>;

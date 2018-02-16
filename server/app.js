@@ -4,7 +4,7 @@
  import React from 'react';
  import {renderToString} from 'react-dom/server';
  import template from './template.js';
- import {matchPath, StaticRouter } from 'react-router-dom';
+ import {StaticRouter} from 'react-router';
  import cors from 'cors';
  //import App from './index.js';
  import App from '../shared/index.js';

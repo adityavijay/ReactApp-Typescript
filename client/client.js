@@ -1,13 +1,13 @@
 ﻿ import React from 'react';
- import {render} from 'react-dom';
+ import ReactDOM, {render, hydrate} from 'react-dom';
  import App from '../shared/index.js';
- import {BrowserRouter as Router} from 'react-router-dom';
+ import {BrowserRouter as Router, browserHistory, HashRouter} from 'react-router-dom';
+ import '../shared/css/global.less';
  
  //var P = ()=>{return <div><div>hello<div></div>}
 class RoutingApplication extends React.Component{
 	render(){
-		return (<Router><App {...this.props}/></Router>);
+		return (<HashRouter history={browserHistory}><App {...this.props}/></HashRouter>);
 	}
 }
-
- render(<RoutingApplication/>, document.getElementById('root'));
+ReactDOM.render(<RoutingApplication/>, document.getElementById('root'));

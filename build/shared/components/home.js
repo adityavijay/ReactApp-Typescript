@@ -10,11 +10,13 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _redux = require('redux');
+var _header = require('./header.js');
 
-var _reactRedux = require('react-redux');
+var _header2 = _interopRequireDefault(_header);
 
-var _actions = require('../actions/actions');
+var _content = require('./content.js');
+
+var _content2 = _interopRequireDefault(_content);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24,53 +26,41 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var UserList = function (_Component) {
-	_inherits(UserList, _Component);
+var Home = function (_Component) {
+	_inherits(Home, _Component);
 
-	function UserList() {
-		_classCallCheck(this, UserList);
+	function Home(props) {
+		_classCallCheck(this, Home);
 
-		return _possibleConstructorReturn(this, (UserList.__proto__ || Object.getPrototypeOf(UserList)).apply(this, arguments));
+		return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props));
 	}
 
-	_createClass(UserList, [{
-		key: 'createListItems',
-		value: function createListItems() {
-			var _this2 = this;
-
-			return this.props.users.map(function (user, i) {
-				return _react2.default.createElement(
-					'li',
-					{ key: i, onClick: function onClick() {
-							return _this2.props.onSelectClick(user);
-						} },
-					user.Firstname
-				);
-			});
-		}
-	}, {
+	_createClass(Home, [{
 		key: 'render',
 		value: function render() {
 			return _react2.default.createElement(
-				'ul',
-				null,
-				this.createListItems()
+				'div',
+				{ className: 'container' },
+				_react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(_header2.default, { className: 'Hello' })
+				),
+				_react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(_content2.default, null)
+				),
+				_react2.default.createElement(
+					'div',
+					null,
+					this.props.children
+				)
 			);
 		}
 	}]);
 
-	return UserList;
+	return Home;
 }(_react.Component);
 
-var mapStateToProps = function mapStateToProps(state, props) {
-	return { users: state.users };
-},
-    mapDispatchToProps = function mapDispatchToProps(dispatch, props) {
-	return { onSelectClick: function onSelectClick(user) {
-			dispatch((0, _actions.setActive)(user));
-		} };
-};
-
-exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(UserList);
-
-//export var x =connect(mapStateToProps)(UserList);
+exports.default = Home;

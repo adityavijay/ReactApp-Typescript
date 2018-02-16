@@ -18,7 +18,7 @@ var _template = require('./template.js');
 
 var _template2 = _interopRequireDefault(_template);
 
-var _reactRouterDom = require('react-router-dom');
+var _reactRouter = require('react-router');
 
 var _cors = require('cors');
 
@@ -48,7 +48,7 @@ server.get('/', function (req, res) {
 
   var context = {},
       appString = (0, _server.renderToString)(_react2.default.createElement(
-    _reactRouterDom.StaticRouter,
+    _reactRouter.StaticRouter,
     { location: req.url, context: context },
     _react2.default.createElement(_index2.default, null)
   ));

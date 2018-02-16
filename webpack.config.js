@@ -48,10 +48,10 @@ module.exports={
 	         ]
 	       },
 	       {
-         test: /\.xml$/,
-	         use: [
-	           'xml-loader'
-	         ]
+		        test: /\.xml$/,
+		        use: [
+		           'xml-loader'
+		         ]
 	       },
 	       {
 	         test: /\.json$/,
