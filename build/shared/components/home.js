@@ -36,8 +36,12 @@ var Home = function (_Component) {
 	}
 
 	_createClass(Home, [{
+		key: 'componentDidMount',
+		value: function componentDidMount() {}
+	}, {
 		key: 'render',
 		value: function render() {
+
 			return _react2.default.createElement(
 				'div',
 				{ className: 'container' },
@@ -46,7 +50,8 @@ var Home = function (_Component) {
 					'div',
 					{ className: 'm-content' },
 					this.props.children
-				)
+				),
+				_react2.default.createElement('p', null)
 			);
 		}
 	}]);

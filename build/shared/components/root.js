@@ -10,11 +10,15 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _redux = require('redux');
+var _reactRouter = require('react-router');
 
-var _reactRedux = require('react-redux');
+var _home = require('./home.js');
 
-var _actions = require('../actions/actions');
+var _home2 = _interopRequireDefault(_home);
+
+var _clock = require('./clock.js');
+
+var _clock2 = _interopRequireDefault(_clock);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24,54 +28,76 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var UserList = function (_Component) {
-	_inherits(UserList, _Component);
+//import App from '../comp/redux.js';
 
-	function UserList() {
-		_classCallCheck(this, UserList);
+var Routes = function (_Component) {
+	_inherits(Routes, _Component);
 
-		return _possibleConstructorReturn(this, (UserList.__proto__ || Object.getPrototypeOf(UserList)).apply(this, arguments));
+	function Routes() {
+		_classCallCheck(this, Routes);
+
+		return _possibleConstructorReturn(this, (Routes.__proto__ || Object.getPrototypeOf(Routes)).apply(this, arguments));
 	}
 
-	_createClass(UserList, [{
-		key: 'createListItems',
-		value: function createListItems() {
-			var _this2 = this;
-
-			return this.props.users.map(function (user, i) {
-				return _react2.default.createElement(
-					'li',
-					{ key: i, onClick: function onClick() {
-							return _this2.props.onSelectClick(user);
-						} },
-					user.Firstname
-				);
-			});
-		}
-	}, {
+	_createClass(Routes, [{
 		key: 'render',
 		value: function render() {
-			var x = this.props;
 			return _react2.default.createElement(
-				'ul',
+				'div',
 				null,
-				this.createListItems()
+				_react2.default.createElement(_reactRouter.Route, { path: '/', render: function render() {
+						return _react2.default.createElement(
+							_home2.default,
+							null,
+							_react2.default.createElement(_reactRouter.Route, { exact: true, path: '/', component: Initial }),
+							_react2.default.createElement(_reactRouter.Route, { path: '/aboutUs', render: function render() {
+									return _react2.default.createElement(
+										'div',
+										null,
+										'AboutUs'
+									);
+								} }),
+							_react2.default.createElement(_reactRouter.Route, { path: '/location', render: function render() {
+									return _react2.default.createElement(
+										'div',
+										null,
+										'OfficeLocation is here'
+									);
+								} }),
+							_react2.default.createElement(_reactRouter.Route, { path: '/redirect', render: function render() {
+									return _react2.default.createElement(
+										'div',
+										null,
+										' Redirected '
+									);
+								} })
+						);
+					} })
 			);
 		}
 	}]);
 
-	return UserList;
+	return Routes;
 }(_react.Component);
 
-var mapStateToProps = function mapStateToProps(state, props) {
-	return { users: state.users };
-},
-    mapDispatchToProps = function mapDispatchToProps(dispatch, props) {
-	return { onSelectClick: function onSelectClick(user) {
-			dispatch((0, _actions.setActive)(user));
-		} };
-};
+exports.default = Routes;
 
-exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(UserList);
 
-//export var x =connect(mapStateToProps)(UserList);
+function Initial() {
+
+	return _react2.default.createElement(
+		'div',
+		null,
+		_react2.default.createElement(
+			'div',
+			null,
+			'Hello Aditya'
+		),
+		' ',
+		_react2.default.createElement(
+			'div',
+			null,
+			_react2.default.createElement(_clock2.default, null)
+		)
+	);
+}

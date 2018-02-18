@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Route, Link, Switch, Redirect, IndexRoute} from 'react-router';
 import Home from './home.js';
+import Clock from './clock.js';
+//import App from '../comp/redux.js';
 
 export default class Routes extends Component{
 	render(){
@@ -21,5 +23,5 @@ export default class Routes extends Component{
 
 function Initial(){
 
-	return (<div>Hello Aditya</div>);
+	return (<div><div>Hello Aditya</div> <div><Clock/></div></div>);
 }

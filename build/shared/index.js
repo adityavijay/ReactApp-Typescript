@@ -46,16 +46,16 @@ var _redux = require('./comp/redux.js');
 
 var _redux2 = _interopRequireDefault(_redux);
 
-var _route = require('./components/route.js');
+var _root = require('./components/root.js');
 
-var _route2 = _interopRequireDefault(_route);
+var _root2 = _interopRequireDefault(_root);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = function () {
-	return _react2.default.createElement(_route2.default, null);
+	return _react2.default.createElement(_root2.default, null);
 };
 // import img from  './img/banner.png';
 // import './css/global.css';

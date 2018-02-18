@@ -8,7 +8,8 @@ class UserList extends Component{
 			return (<li key={i} onClick= {()=>(this.props.onSelectClick(user))}>{user.Firstname}</li>);
 		});
 	}
-    render(){	
+    render(){
+    var x= this.props;	
 		return (<ul>{this.createListItems()}</ul>);
 	}
 }

@@ -16,6 +16,10 @@ var _home = require('./home.js');
 
 var _home2 = _interopRequireDefault(_home);
 
+var _redux = require('../comp/redux.js');
+
+var _redux2 = _interopRequireDefault(_redux);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -82,6 +86,7 @@ function Initial() {
 	return _react2.default.createElement(
 		'div',
 		null,
-		'Hello Aditya'
+		'Hello Aditya ',
+		_react2.default.createElement(_redux2.default, null)
 	);
 }

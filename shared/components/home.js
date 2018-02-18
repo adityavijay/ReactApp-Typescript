@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Header from './header.js';
-import Content from "./content.js";
+import Content from './content.js';
 
 
 export default class Home extends Component{
@@ -8,11 +8,17 @@ export default class Home extends Component{
 		super(props);
 	}
 
+	componentDidMount(){
+		
+	}
 
-	render(){
+	render(){		
+
 		return(<div className="container">
 			   <Header className="m-nav"/>
 			   <div className="m-content">{this.props.children}</div>
+			   <p></p>
 			</div>);
+
 	}	
 }
