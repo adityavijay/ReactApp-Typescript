@@ -20,6 +20,10 @@ var _clock = require('./clock.js');
 
 var _clock2 = _interopRequireDefault(_clock);
 
+var _store = require('./store.js');
+
+var _store2 = _interopRequireDefault(_store);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -27,8 +31,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
+//import {findDOMNode} from 'react-dom';
 //import App from '../comp/redux.js';
+
 
 var Routes = function (_Component) {
 	_inherits(Routes, _Component);
@@ -42,37 +47,44 @@ var Routes = function (_Component) {
 	_createClass(Routes, [{
 		key: 'render',
 		value: function render() {
+			window.ref1 = this.refs;
+			console.log(window.ref1);
 			return _react2.default.createElement(
 				'div',
 				null,
-				_react2.default.createElement(_reactRouter.Route, { path: '/', render: function render() {
-						return _react2.default.createElement(
-							_home2.default,
-							null,
-							_react2.default.createElement(_reactRouter.Route, { exact: true, path: '/', component: Initial }),
-							_react2.default.createElement(_reactRouter.Route, { path: '/aboutUs', render: function render() {
-									return _react2.default.createElement(
-										'div',
-										null,
-										'AboutUs'
-									);
-								} }),
-							_react2.default.createElement(_reactRouter.Route, { path: '/location', render: function render() {
-									return _react2.default.createElement(
-										'div',
-										null,
-										'OfficeLocation is here'
-									);
-								} }),
-							_react2.default.createElement(_reactRouter.Route, { path: '/redirect', render: function render() {
-									return _react2.default.createElement(
-										'div',
-										null,
-										' Redirected '
-									);
-								} })
-						);
-					} })
+				_react2.default.createElement(
+					_store2.default,
+					null,
+					_react2.default.createElement(_reactRouter.Route, { path: '/', render: function render() {
+							return _react2.default.createElement(
+								_home2.default,
+								null,
+								_react2.default.createElement(_reactRouter.Route, { exact: true, path: '/', component: Initial }),
+								_react2.default.createElement(_reactRouter.Route, { path: '/aboutUs', render: function render() {
+										return _react2.default.createElement(
+											'div',
+											null,
+											'About us ',
+											_react2.default.createElement(_clock2.default, null)
+										);
+									} }),
+								_react2.default.createElement(_reactRouter.Route, { path: '/location', render: function render() {
+										return _react2.default.createElement(
+											'div',
+											null,
+											'OfficeLocation is here'
+										);
+									} }),
+								_react2.default.createElement(_reactRouter.Route, { path: '/redirect', render: function render() {
+										return _react2.default.createElement(
+											'div',
+											null,
+											' Redirected '
+										);
+									} })
+							);
+						} })
+				)
 			);
 		}
 	}]);
@@ -82,22 +94,44 @@ var Routes = function (_Component) {
 
 exports.default = Routes;
 
+var Initial = function (_Component2) {
+	_inherits(Initial, _Component2);
 
-function Initial() {
+	function Initial() {
+		_classCallCheck(this, Initial);
 
-	return _react2.default.createElement(
-		'div',
-		null,
-		_react2.default.createElement(
-			'div',
-			null,
-			'Hello Aditya'
-		),
-		' ',
-		_react2.default.createElement(
-			'div',
-			null,
-			_react2.default.createElement(_clock2.default, null)
-		)
-	);
+		return _possibleConstructorReturn(this, (Initial.__proto__ || Object.getPrototypeOf(Initial)).apply(this, arguments));
+	}
+
+	_createClass(Initial, [{
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				'div',
+				null,
+				'Hello'
+			);
+		}
+	}]);
+
+	return Initial;
+}(_react.Component);
+
+/*
+window.z = function (){
+	console.log('biii');
 }
+
+
+	var Obj={
+		x:34,
+		 y: function(){
+		this.z();
+	}, z:function(){
+		console.log("hello")
+	}};
+
+	const U = (Obj.y).bind(window);
+
+	U();
+*/

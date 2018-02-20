@@ -43,6 +43,11 @@ var Clock = exports.Clock = function (_React$Component) {
 	}
 
 	_createClass(Clock, [{
+		key: 'componentWillMount',
+		value: function componentWillMount() {
+			console.log(1);
+		}
+	}, {
 		key: 'componentDidMount',
 		value: function componentDidMount() {
 			var _this2 = this;

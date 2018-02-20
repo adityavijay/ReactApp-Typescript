@@ -8,11 +8,7 @@ export default class Home extends Component{
 		super(props);
 	}
 
-	componentDidMount(){
-		
-	}
-
-	render(){		
+	render(){	
 
 		return(<div className="container">
 			   <Header className="m-nav"/>

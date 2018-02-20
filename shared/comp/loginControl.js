@@ -28,20 +28,21 @@ export class LogInControl extends React.Component{
 		this.onLogOutClick = this.onLogOutClick.bind(this);
 	}
 	
-	componentWillReceiveProps(nextSt){
+	componentWillReceiveProps(nextProps){
 		console.log(1);
+	}
+
+	componentWillUpdate(nextProps, NextSt){
+		console.log(3);
 	}
 	
 	shouldComponentUpdate(nextProps, NextSt){
 		console.log(2);
 		return true;
 	}
-	
-	componentWillUpdate(nextProps, NextSt){
-		console.log(3);
-	}
-	
-	componentDidUpdate(nextProps, NextSt){
+	// Now this. state and this.props object will change then render() is called
+		
+	componentDidUpdate(prevProps, prevSt){
 		console.log(4);
 	}
 	

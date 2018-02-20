@@ -66,14 +66,8 @@ var LogInControl = exports.LogInControl = function (_React$Component) {
 
 	_createClass(LogInControl, [{
 		key: 'componentWillReceiveProps',
-		value: function componentWillReceiveProps(nextSt) {
+		value: function componentWillReceiveProps(nextProps) {
 			console.log(1);
-		}
-	}, {
-		key: 'shouldComponentUpdate',
-		value: function shouldComponentUpdate(nextProps, NextSt) {
-			console.log(2);
-			return true;
 		}
 	}, {
 		key: 'componentWillUpdate',
@@ -81,8 +75,16 @@ var LogInControl = exports.LogInControl = function (_React$Component) {
 			console.log(3);
 		}
 	}, {
+		key: 'shouldComponentUpdate',
+		value: function shouldComponentUpdate(nextProps, NextSt) {
+			console.log(2);
+			return true;
+		}
+		// Now this. state and this.props object will change then render() is called
+
+	}, {
 		key: 'componentDidUpdate',
-		value: function componentDidUpdate(nextProps, NextSt) {
+		value: function componentDidUpdate(prevProps, prevSt) {
 			console.log(4);
 		}
 	}, {

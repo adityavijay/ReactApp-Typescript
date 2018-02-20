@@ -36,9 +36,6 @@ var Home = function (_Component) {
 	}
 
 	_createClass(Home, [{
-		key: 'componentDidMount',
-		value: function componentDidMount() {}
-	}, {
 		key: 'render',
 		value: function render() {
 

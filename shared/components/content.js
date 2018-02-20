@@ -1,6 +1,6 @@
 import React from 'react';
 export default ()=>{
-	return <div>
+	return (<div>
 			Welcome to React Single Page App
-	</div>
+	</div>);
 }

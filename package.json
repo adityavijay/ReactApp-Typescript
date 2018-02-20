@@ -8,23 +8,28 @@
       "env",
       "react"
     ],
-    "plugins": ["css-modules-transform"]
+    "plugins": [
+      "css-modules-transform"
+    ],
+    "env": {
+      
+    }
   },
   "scripts": {
     "start": "webpack-dev-server --open",
     "build": "webpack",
-    "buildserver": "babel ./server/*.js -d build -w",
-    "buildclient": "babel ./shared/**/*.js -d build -w",
     "runserver": "node ./build/server/app.js",
-    "watch": "webpack --progress --watch",
+    "webpack": "webpack --progress --watch",
     "buildapp": "babel ./server/*.js ./shared/**/*.js -d build -w",
-    "nodemon": "nodemon ./build/server/app.js"
+    "nodemon": "nodemon ./build/server/app.js",
+    "test": "jest"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-plugin-css-modules-transform": "^1.4.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
@@ -35,6 +40,8 @@
     "express": "^4.16.2",
     "file-loader": "^0.11.2",
     "html-webpack-plugin": "^2.30.1",
+    "jest": "^22.4.0",
+    "jest-enzyme": "^4.2.0",
     "json-loader": "^0.5.7",
     "less": "^2.7.3",
     "less-loader": "^4.0.5",
@@ -44,6 +51,7 @@
     "prop-types": "^15.6.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
+    "react-test-renderer": "^16.2.0",
     "redux": "^3.7.2",
     "style-loader": "^0.18.2",
     "uglifyjs-webpack-plugin": "^0.4.6",

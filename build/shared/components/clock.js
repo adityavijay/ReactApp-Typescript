@@ -18,6 +18,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+//import TestRenderer from 'react-test-renderer';
+
 var Clock = function (_Component) {
 	_inherits(Clock, _Component);
 
@@ -26,18 +28,28 @@ var Clock = function (_Component) {
 
 		var _this = _possibleConstructorReturn(this, (Clock.__proto__ || Object.getPrototypeOf(Clock)).call(this, props));
 
-		_this.state = { currentTime: new Date(), y: 45 };
+		_this.state = { currentTime: new Date() };
 		return _this;
 	}
 
 	_createClass(Clock, [{
+		key: 'componentWillMount',
+		value: function componentWillMount() {
+			console.log(1);
+		}
+	}, {
 		key: 'componentDidMount',
 		value: function componentDidMount() {
 			var _this2 = this;
 
-			setInterval(function () {
+			this.id = setInterval(function () {
 				return _this2.setState({ currentTime: new Date() });
 			}, 1000);
+		}
+	}, {
+		key: 'componentWillUnmount',
+		value: function componentWillUnmount() {
+			clearInterval(this.id);
 		}
 	}, {
 		key: 'render',
@@ -52,5 +64,9 @@ var Clock = function (_Component) {
 
 	return Clock;
 }(_react.Component);
+
+//This.setState({cTime:new Date()}) will do the shallow merge for states while 
+//this.setState((prevSt,currentProps)=>{return{cTime:new Date}}) takes the reference of previos state too
+
 
 exports.default = Clock;

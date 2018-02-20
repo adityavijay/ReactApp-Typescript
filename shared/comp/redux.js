@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import  {createStore} from 'redux';
+import {createStore} from 'redux';
 import {combineReducers} from 'redux';
 import userReducer from '../reducers/users';
 import selectedUserReducer from '../reducers/selectedUser';

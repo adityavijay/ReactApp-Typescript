@@ -9,7 +9,10 @@ export class Clock extends React.Component{
 		this.tick = this.tick.bind(this);
 	}	
 	
-	
+	componentWillMount(){
+		console.log(1);
+	}
+
 	componentDidMount(){
 		this.id = setInterval(()=>this.tick(),1000);
 	}

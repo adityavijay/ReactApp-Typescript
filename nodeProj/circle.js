@@ -1,9 +1,9 @@
 ﻿module.exports.area = (r)=> 3.14*r*r;
 
 module.exports.testModule = function(){
-	return module.exports;
+	return 234;
 };
 
-exports.test = function(){
+exports.default = function(){
 	return 345;
 };
