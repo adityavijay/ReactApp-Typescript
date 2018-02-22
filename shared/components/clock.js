@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+
 //import TestRenderer from 'react-test-renderer';
 
 export default class Clock extends Component{
@@ -18,7 +19,7 @@ export default class Clock extends Component{
 	}
 
 	render(){
-		return (<div>{this.state.currentTime.toLocaleTimeString()}</div>);
+		return (<div>{this.state.currentTime.toLocaleTimeString()}<p>Hello</p></div>);
 	}
 } 
 

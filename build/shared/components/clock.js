@@ -57,7 +57,12 @@ var Clock = function (_Component) {
 			return _react2.default.createElement(
 				'div',
 				null,
-				this.state.currentTime.toLocaleTimeString()
+				this.state.currentTime.toLocaleTimeString(),
+				_react2.default.createElement(
+					'p',
+					null,
+					'Hello'
+				)
 			);
 		}
 	}]);

@@ -1,3 +1,5 @@
+import 'raf/polyfill';
+import 'babel-polyfill';
 
 /*test('adds 1 + 2 to equal 3', () => {
  var sum = require('../sum.js');

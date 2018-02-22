@@ -47,8 +47,7 @@ var Routes = function (_Component) {
 	_createClass(Routes, [{
 		key: 'render',
 		value: function render() {
-			window.ref1 = this.refs;
-			console.log(window.ref1);
+
 			return _react2.default.createElement(
 				'div',
 				null,
@@ -116,22 +115,3 @@ var Initial = function (_Component2) {
 
 	return Initial;
 }(_react.Component);
-
-/*
-window.z = function (){
-	console.log('biii');
-}
-
-
-	var Obj={
-		x:34,
-		 y: function(){
-		this.z();
-	}, z:function(){
-		console.log("hello")
-	}};
-
-	const U = (Obj.y).bind(window);
-
-	U();
-*/
