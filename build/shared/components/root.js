@@ -16,11 +16,11 @@ var _home = require('./home.js');
 
 var _home2 = _interopRequireDefault(_home);
 
-var _clock = require('./clock.js');
+var _clock = require('../containers/clock.js');
 
 var _clock2 = _interopRequireDefault(_clock);
 
-var _store = require('./store.js');
+var _store = require('../store.js');
 
 var _store2 = _interopRequireDefault(_store);
 
@@ -44,7 +44,6 @@ var Root = function (_Component) {
 	_createClass(Root, [{
 		key: 'render',
 		value: function render() {
-
 			return _react2.default.createElement(
 				'div',
 				null,
@@ -105,7 +104,8 @@ var Initial = function (_Component2) {
 			return _react2.default.createElement(
 				'div',
 				null,
-				'Hello'
+				'Hello',
+				_react2.default.createElement(_clock2.default, null)
 			);
 		}
 	}]);

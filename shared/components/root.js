@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
 import {Route, Link, Switch, Redirect, IndexRoute} from 'react-router';
 import Home from './home.js';
-import Clock from './clock.js';
-import Store from './store.js';
+import Clock from '../containers/clock.js';
+import Store from '../store.js';
 
 export default class Root extends Component{	
-render(){ 
-	
+render(){	
 	return (<div>
 			   <Store>		
 					<Route path="/" render={()=>{
@@ -32,6 +31,6 @@ render(){
 
 class Initial extends Component{
 	render(){
-		return (<div>Hello</div>);
+		return (<div>Hello<Clock/></div>);
 	}
 }
