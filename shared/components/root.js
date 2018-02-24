@@ -2,15 +2,13 @@ import React, {Component} from 'react';
 import {Route, Link, Switch, Redirect, IndexRoute} from 'react-router';
 import Home from './home.js';
 import Clock from './clock.js';
-//import {findDOMNode} from 'react-dom';
-//import App from '../comp/redux.js';
 import Store from './store.js';
 
-export default class Routes extends Component{	
+export default class Root extends Component{	
 render(){ 
 	
 	return (<div>
-			    <Store>		
+			   <Store>		
 					<Route path="/" render={()=>{
 						return (<Home>
 							<Route exact path="/" component={Initial}/>

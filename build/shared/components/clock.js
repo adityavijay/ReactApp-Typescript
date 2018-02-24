@@ -10,6 +10,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactRedux = require('react-redux');
+
+var _actions = require('../actions/actions.js');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -23,33 +27,20 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Clock = function (_Component) {
 	_inherits(Clock, _Component);
 
-	function Clock(props) {
+	function Clock() {
 		_classCallCheck(this, Clock);
 
-		var _this = _possibleConstructorReturn(this, (Clock.__proto__ || Object.getPrototypeOf(Clock)).call(this, props));
-
-		_this.state = { currentTime: new Date() };
-		return _this;
+		return _possibleConstructorReturn(this, (Clock.__proto__ || Object.getPrototypeOf(Clock)).apply(this, arguments));
 	}
 
 	_createClass(Clock, [{
-		key: 'componentWillMount',
-		value: function componentWillMount() {
-			console.log(1);
-		}
-	}, {
 		key: 'componentDidMount',
 		value: function componentDidMount() {
 			var _this2 = this;
 
 			this.id = setInterval(function () {
-				return _this2.setState({ currentTime: new Date() });
+				_this2.props.setCurrentTime(new Date().toLocaleTimeString());
 			}, 1000);
-		}
-	}, {
-		key: 'componentWillUnmount',
-		value: function componentWillUnmount() {
-			clearInterval(this.id);
 		}
 	}, {
 		key: 'render',
@@ -57,12 +48,7 @@ var Clock = function (_Component) {
 			return _react2.default.createElement(
 				'div',
 				null,
-				this.state.currentTime.toLocaleTimeString(),
-				_react2.default.createElement(
-					'p',
-					null,
-					'Hello'
-				)
+				this.props.currentTime
 			);
 		}
 	}]);
@@ -70,8 +56,16 @@ var Clock = function (_Component) {
 	return Clock;
 }(_react.Component);
 
+var mapStateToProps = function mapStateToProps(st) {
+	return { currentTime: st.currentTime };
+},
+    mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	return { setCurrentTime: function setCurrentTime(time) {
+			return dispatch((0, _actions.setCurrentTime)(time));
+		} };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Clock);
+
 //This.setState({cTime:new Date()}) will do the shallow merge for states while 
 //this.setState((prevSt,currentProps)=>{return{cTime:new Date}}) takes the reference of previos state too
-
-
-exports.default = Clock;

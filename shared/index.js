@@ -1,4 +1,4 @@
-﻿ import React from 'react';
+﻿ /*import React from 'react';
  import dOM1 from 'react-dom';
  import pme from './print.js';
  import data12 from './data.json';
@@ -13,7 +13,7 @@
  // import './css/global.css';
  // import './css/global.less';
  
-/*
+
 export default function(){
 	
 	//clk1();
@@ -40,6 +40,7 @@ export default function(){
     return <div className="less"><Clock/><logInControl.LogInControl/><br/><temp.TemperatureConverter/><br/><HOC.SumFinal/><br/><HOC.SubFinal ad="qwe"/><br/><PT.FilterableProductTable/><App/><div className="test">CSS testing</div><Comp/><p className="test">Hello Less</p>{ListItem}{ React.createElement('div','','hello aditya')}{React.createElement('p',{width:100},'Hello P')}{ Frag}</div>
 	
 } */
-import Routes from './components/root.js';
+import React from 'react';
+import Root from './components/root.js';
 
-export default ()=><Routes/>;
+export default ()=><Root/>;

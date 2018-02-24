@@ -31,20 +31,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-//import {findDOMNode} from 'react-dom';
-//import App from '../comp/redux.js';
 
+var Root = function (_Component) {
+	_inherits(Root, _Component);
 
-var Routes = function (_Component) {
-	_inherits(Routes, _Component);
+	function Root() {
+		_classCallCheck(this, Root);
 
-	function Routes() {
-		_classCallCheck(this, Routes);
-
-		return _possibleConstructorReturn(this, (Routes.__proto__ || Object.getPrototypeOf(Routes)).apply(this, arguments));
+		return _possibleConstructorReturn(this, (Root.__proto__ || Object.getPrototypeOf(Root)).apply(this, arguments));
 	}
 
-	_createClass(Routes, [{
+	_createClass(Root, [{
 		key: 'render',
 		value: function render() {
 
@@ -88,10 +85,10 @@ var Routes = function (_Component) {
 		}
 	}]);
 
-	return Routes;
+	return Root;
 }(_react.Component);
 
-exports.default = Routes;
+exports.default = Root;
 
 var Initial = function (_Component2) {
 	_inherits(Initial, _Component2);
