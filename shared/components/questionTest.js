@@ -15,9 +15,19 @@ export default class QuestionTest extends Component{
 			return <Question key={key} {...data}/>
 		});
 
-		return (<form onSubmit={(e)=>{console.log('hello'); e.preventDefault();}}>
-			{Questions}<input type="submit" value="Click"/>
+		return (<form onSubmit={(e)=>{console.log(this.refs); e.preventDefault();}}>
+			{Questions}<ExtraInputs ref={(obj)=>obj.handleClick()}/><input type="submit" value="Click"/>
 		</form>);
+	}
+}
+
+class ExtraInputs extends Component{
+	handleClick(){
+		console.log('Hello ref');
+	}
+
+	render(){
+		return (<input type="text"/>);
 	}
 }
 

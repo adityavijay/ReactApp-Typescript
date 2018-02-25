@@ -34,6 +34,8 @@ var QuestionTest = function (_Component) {
 	_createClass(QuestionTest, [{
 		key: "render",
 		value: function render() {
+			var _this2 = this;
+
 			var ad = this.refs;
 			var Questions = questionObject.map(function (question, key) {
 				var data = _extends({}, question, { id: key, style: { listStyle: 'none', backgroundColor: 'grey	' } });
@@ -43,9 +45,12 @@ var QuestionTest = function (_Component) {
 			return _react2.default.createElement(
 				"form",
 				{ onSubmit: function onSubmit(e) {
-						console.log('hello');e.preventDefault();
+						console.log(_this2.refs);e.preventDefault();
 					} },
 				Questions,
+				_react2.default.createElement(ExtraInputs, { ref: function ref(obj) {
+						return obj.handleClick();
+					} }),
 				_react2.default.createElement("input", { type: "submit", value: "Click" })
 			);
 		}
@@ -56,6 +61,29 @@ var QuestionTest = function (_Component) {
 
 exports.default = QuestionTest;
 
+var ExtraInputs = function (_Component2) {
+	_inherits(ExtraInputs, _Component2);
+
+	function ExtraInputs() {
+		_classCallCheck(this, ExtraInputs);
+
+		return _possibleConstructorReturn(this, (ExtraInputs.__proto__ || Object.getPrototypeOf(ExtraInputs)).apply(this, arguments));
+	}
+
+	_createClass(ExtraInputs, [{
+		key: "handleClick",
+		value: function handleClick() {
+			console.log('Hello ref');
+		}
+	}, {
+		key: "render",
+		value: function render() {
+			return _react2.default.createElement("input", { type: "text" });
+		}
+	}]);
+
+	return ExtraInputs;
+}(_react.Component);
 
 function Question(props) {
 	return _react2.default.createElement(
