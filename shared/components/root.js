@@ -3,6 +3,7 @@ import {Route, Link, Switch, Redirect, IndexRoute} from 'react-router';
 import Home from './home.js';
 import Clock from '../containers/clock.js';
 import Store from '../store.js';
+import QuestionTest from './questionTest.js';
 
 export default class Root extends Component{	
 render(){	
@@ -21,10 +22,11 @@ render(){
 							}}/>
 							<Route path="/redirect" render={()=>{
 								return <div> Redirected </div>}}/>	
+							<Route path="/questions" component={QuestionTest}/>
 						</Home>);
 					}}/>			
 				</Store>
-			</div>);
+			</div>);	
 		}
 }	
 
@@ -34,3 +36,5 @@ class Initial extends Component{
 		return (<div>Hello<Clock/></div>);
 	}
 }
+
+

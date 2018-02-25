@@ -45,6 +45,15 @@ exports.default = function (props) {
 																				{ to: '/location' },
 																				'OfficeLocation'
 																)
+												),
+												_react2.default.createElement(
+																'li',
+																null,
+																_react2.default.createElement(
+																				_reactRouterDom.NavLink,
+																				{ to: '/questions' },
+																				'Questions'
+																)
 												)
 								)
 				);

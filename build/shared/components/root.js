@@ -24,6 +24,10 @@ var _store = require('../store.js');
 
 var _store2 = _interopRequireDefault(_store);
 
+var _questionTest = require('./questionTest.js');
+
+var _questionTest2 = _interopRequireDefault(_questionTest);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -76,7 +80,8 @@ var Root = function (_Component) {
 											null,
 											' Redirected '
 										);
-									} })
+									} }),
+								_react2.default.createElement(_reactRouter.Route, { path: '/questions', component: _questionTest2.default })
 							);
 						} })
 				)
