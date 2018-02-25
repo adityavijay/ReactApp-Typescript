@@ -34,8 +34,9 @@ var QuestionTest = function (_Component) {
 	_createClass(QuestionTest, [{
 		key: "render",
 		value: function render() {
+			var ad = this.refs;
 			var Questions = questionObject.map(function (question, key) {
-				var data = _extends({}, question, { id: key, style: {} });
+				var data = _extends({}, question, { id: key, style: { listStyle: 'none', backgroundColor: 'grey	' } });
 				return _react2.default.createElement(Question, _extends({ key: key }, data));
 			});
 
@@ -65,10 +66,10 @@ function Question(props) {
 			null,
 			props.ques
 		),
-		_react2.default.createElement(RadioInputWithLabel, { id: props.id, option: props.opt1 }),
-		_react2.default.createElement(RadioInputWithLabel, { id: props.id, option: props.opt2 }),
-		_react2.default.createElement(RadioInputWithLabel, { id: props.id, option: props.opt3 }),
-		_react2.default.createElement(RadioInputWithLabel, { id: props.id, option: props.opt4 })
+		_react2.default.createElement(RadioInputWithLabel, { id: "opt1" + props.id, option: props.opt1 }),
+		_react2.default.createElement(RadioInputWithLabel, { id: "opt2" + props.id, option: props.opt2 }),
+		_react2.default.createElement(RadioInputWithLabel, { id: "opt3" + props.id, option: props.opt3 }),
+		_react2.default.createElement(RadioInputWithLabel, { id: "opt4" + props.id, option: props.opt4 })
 	);
 }
 

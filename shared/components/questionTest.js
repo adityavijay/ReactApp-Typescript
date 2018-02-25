@@ -9,12 +9,15 @@ export default class QuestionTest extends Component{
 	}
 
 	render(){
+		const ad = this.refs;
 		const Questions =  questionObject.map((question, key)=>{
-			const data =  {...question, id:key, style:{}};
+			const data =  {...question, id:key, style:{listStyle:'none', backgroundColor:'grey	'}};
 			return <Question key={key} {...data}/>
 		});
 
-		return <form onSubmit={(e)=>{console.log('hello'); e.preventDefault();}}>{Questions}<input type="submit" value="Click"/></form>;
+		return (<form onSubmit={(e)=>{console.log('hello'); e.preventDefault();}}>
+			{Questions}<input type="submit" value="Click"/>
+		</form>);
 	}
 }
 
@@ -22,10 +25,10 @@ export default class QuestionTest extends Component{
 function Question(props){
 	return (<ul style={props.style}>
 				<li>{props.ques}</li>
-				<RadioInputWithLabel id={props.id} option={props.opt1}/>
-				<RadioInputWithLabel id={props.id} option={props.opt2}/>
-				<RadioInputWithLabel id={props.id} option={props.opt3}/>
-				<RadioInputWithLabel id={props.id} option={props.opt4}/>
+				<RadioInputWithLabel id={`opt1${props.id}`} option={props.opt1}/>
+				<RadioInputWithLabel id={`opt2${props.id}`} option={props.opt2}/>
+				<RadioInputWithLabel id={`opt3${props.id}`} option={props.opt3}/>
+				<RadioInputWithLabel id={`opt4${props.id}`} option={props.opt4}/>
 			</ul>);
 }
 
