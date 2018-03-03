@@ -27,7 +27,6 @@ export default class Clock extends Component{
 			()=>this.setState((pvSt)=>{
 			return {currentTime: new Date};
 		})),1000);
-		console.log(123);
 	}
 
 	componentWillReceiveProps( nP){
@@ -50,8 +49,7 @@ export default class Clock extends Component{
 	}
 
 	render(){		
-		console.log(1234578);
-		return (<div>{this.state.currentTime.toLocaleTimeString()}<p className="hello">Hello</p><CustomTextInput ip={(el)=>this.ele=el}/></div>);
+		return (<div>{this.state.currentTime.toLocaleTimeString()}<p className="hello1">Hello</p><CustomTextInput ip={(el)=>this.ele=el}/></div>);
 	}
 
 	componentDidUpdate(prProps, preSt){

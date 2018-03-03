@@ -60,7 +60,6 @@ var Clock = function (_Component) {
 					});
 				});
 			}, 1000);
-			console.log(123);
 		}
 	}, {
 		key: "componentWillReceiveProps",
@@ -88,14 +87,13 @@ var Clock = function (_Component) {
 		value: function render() {
 			var _this3 = this;
 
-			console.log(1234578);
 			return _react2.default.createElement(
 				"div",
 				null,
 				this.state.currentTime.toLocaleTimeString(),
 				_react2.default.createElement(
 					"p",
-					{ className: "hello" },
+					{ className: "hello1" },
 					"Hello"
 				),
 				_react2.default.createElement(CustomTextInput, { ip: function ip(el) {

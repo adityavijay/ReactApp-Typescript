@@ -15,7 +15,6 @@ describe("Clock component", ()=>{
 		expect(tree).toMatchSnapshot();*/
 
 		const content = shallow(<Clock/>);
-		expect(content.find('.hello')).toHaveLength(1);
 		//console.log(content.getRenderOutput());
 		//expect(content.find('p')).toEqual(<p>Hello</p>);
 	})
