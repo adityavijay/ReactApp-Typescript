@@ -42,7 +42,8 @@ var UserList = function (_Component) {
 				return _react2.default.createElement(
 					'li',
 					{ key: i, onClick: function onClick() {
-							return _this2.props.onSelectClick(user);
+
+							_this2.props.onSelectClick(user);
 						} },
 					user.Firstname
 				);

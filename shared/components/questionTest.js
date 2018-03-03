@@ -21,10 +21,8 @@ export default class QuestionTest extends Component{
 	}
 }
 
-class ExtraInputs extends Component{
-	handleClick(){
-		console.log('Hello ref');
-	}
+class ExtraInputs extends Component{     handleClick(){
+console.log('Hello ref');     }
 
 	render(){
 		return (<input type="text"/>);
@@ -35,17 +33,26 @@ class ExtraInputs extends Component{
 function Question(props){
 	return (<ul style={props.style}>
 				<li>{props.ques}</li>
-				<RadioInputWithLabel id={`opt1${props.id}`} option={props.opt1}/>
-				<RadioInputWithLabel id={`opt2${props.id}`} option={props.opt2}/>
-				<RadioInputWithLabel id={`opt3${props.id}`} option={props.opt3}/>
-				<RadioInputWithLabel id={`opt4${props.id}`} option={props.opt4}/>
+				<RadioInputWithLabel id={`opt1${props.id}`} nameId={props.id} option={props.opt1}/>
+				<RadioInputWithLabel id={`opt2${props.id}`} nameId={props.id} option={props.opt2}/>
+				<RadioInputWithLabel id={`opt3${props.id}`} nameId={props.id} option={props.opt3}/>
+				<RadioInputWithLabel id={`opt4${props.id}`} nameId={props.id} option={props.opt4}/>
 			</ul>);
 }
 
 
-function RadioInputWithLabel({id, option}){
+function RadioInputWithLabel({id, nameId, option}){
 	return (<li>
 				<label htmlFor={id}>{option}</label>
-				<input type="radio" id={id} name={`question-${id}`} value={option}/>
+				<input type="radio" id={id} name={`question-${nameId}`} value={option}/>
 			</li>);
 }
+
+/* class student{ fullname:string; constructor(public firstname:string, public middleInitial: string){
+	this.fullname = firstname+""+middleInitial
+
+
+	//payment systems coding
+	//Typescript
+	//Memory leaks referencing(closures, unintentional variables, timer). Mark and sweep algorithm
+}} */

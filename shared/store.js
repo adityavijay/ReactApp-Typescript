@@ -1,11 +1,11 @@
 import React from 'react';
-import {createStore} from 'redux';
+import {createStore, combineReducers, applyMiddleware} from 'redux';
 import AllReducers from './reducers/reducerList.js';
-import {combineReducers} from 'redux';
 import {Provider} from 'react-redux';
+import logger from 'redux-logger';
 
-const reducers = combineReducers(AllReducers);
-let store = createStore(reducers);
+const rootReducer = combineReducers(AllReducers);
+let store = createStore(rootReducer, applyMiddleware(logger));
 
 export default ({children})=>{
 	return (

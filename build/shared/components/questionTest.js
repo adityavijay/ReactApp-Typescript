@@ -94,15 +94,16 @@ function Question(props) {
 			null,
 			props.ques
 		),
-		_react2.default.createElement(RadioInputWithLabel, { id: "opt1" + props.id, option: props.opt1 }),
-		_react2.default.createElement(RadioInputWithLabel, { id: "opt2" + props.id, option: props.opt2 }),
-		_react2.default.createElement(RadioInputWithLabel, { id: "opt3" + props.id, option: props.opt3 }),
-		_react2.default.createElement(RadioInputWithLabel, { id: "opt4" + props.id, option: props.opt4 })
+		_react2.default.createElement(RadioInputWithLabel, { id: "opt1" + props.id, nameId: props.id, option: props.opt1 }),
+		_react2.default.createElement(RadioInputWithLabel, { id: "opt2" + props.id, nameId: props.id, option: props.opt2 }),
+		_react2.default.createElement(RadioInputWithLabel, { id: "opt3" + props.id, nameId: props.id, option: props.opt3 }),
+		_react2.default.createElement(RadioInputWithLabel, { id: "opt4" + props.id, nameId: props.id, option: props.opt4 })
 	);
 }
 
 function RadioInputWithLabel(_ref) {
 	var id = _ref.id,
+	    nameId = _ref.nameId,
 	    option = _ref.option;
 
 	return _react2.default.createElement(
@@ -113,6 +114,15 @@ function RadioInputWithLabel(_ref) {
 			{ htmlFor: id },
 			option
 		),
-		_react2.default.createElement("input", { type: "radio", id: id, name: "question-" + id, value: option })
+		_react2.default.createElement("input", { type: "radio", id: id, name: "question-" + nameId, value: option })
 	);
 }
+
+/* class student{ fullname:string; constructor(public firstname:string, public middleInitial: string){
+	this.fullname = firstname+""+middleInitial
+
+
+	//payment systems coding
+	//Typescript
+	//Memory leaks referencing(closures, unintentional variables, timer). Mark and sweep algorithm
+}} */

@@ -1,6 +1,5 @@
-﻿import React, {Component} from 'react';
+import React, {Component} from 'react';
 import {Route, Link} from 'react-router-dom';
-
 
 var NavRoute = ()=>{
 	    return <div>
@@ -8,8 +7,7 @@ var NavRoute = ()=>{
 						<li><Link to="/">Home</Link></li>
 						<li><Link to="/dist/about-us">About us</Link></li>
 						<li><Link to="/topics">Topics</Link></li>
-					</ul>
-						
+					</ul>						
 					<hr/>
 					
 					<Route exact path="/dist" render={()=>(<div>Please click on above link</div>)}/>

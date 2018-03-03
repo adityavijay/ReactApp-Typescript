@@ -51,7 +51,7 @@ var SelectedUser = function (_Component) {
 }(_react.Component);
 
 var mapStateToProps = function mapStateToProps(state) {
-	return { currentUser: state.currentUser };
+	return { currentUser: state.selectedUser };
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(SelectedUser);

@@ -16,7 +16,7 @@ class SelectedUser extends Component{
 
 
 var mapStateToProps=(state)=>{
-	return {currentUser: state.currentUser};
+	return {currentUser: state.selectedUser};
 }
 
 

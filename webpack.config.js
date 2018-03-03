@@ -66,8 +66,11 @@ module.exports={
 					path.resolve(__dirname, "shared")
 				  ],
 				exclude: /(node_modules)/,
-				loader: 'babel-loader?cacheDirectory',
-				
+				loader: 'babel-loader?cacheDirectory'	
+			},
+			{
+				test: /\.tsx$/,
+				loader: 'awesome-typescript-loader'	
 			}
 		]
 	}

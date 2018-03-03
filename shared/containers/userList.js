@@ -5,12 +5,18 @@ import {setActive} from '../actions/actions';
 class UserList extends Component{	
 	createListItems(){
 		return this.props.users.map((user,i)=>{
-			return (<li key={i} onClick= {()=>(this.props.onSelectClick(user))}>{user.Firstname}</li>);
+			return (<li key={i} onClick= {()=>{
+			
+
+				this.props.onSelectClick(
+					user)
+			}}>
+			{user.Firstname}</li>);
 		});
 	}
     render(){
-    var x= this.props;	
-		return (<ul>{this.createListItems()}</ul>);
+	    var x= this.props;	
+			return (<ul>{this.createListItems()}</ul>);
 	}
 }
 

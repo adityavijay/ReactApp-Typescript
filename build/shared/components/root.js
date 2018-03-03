@@ -16,7 +16,7 @@ var _home = require('./home.js');
 
 var _home2 = _interopRequireDefault(_home);
 
-var _clock = require('../containers/clock.js');
+var _clock = require('./clock.js');
 
 var _clock2 = _interopRequireDefault(_clock);
 
@@ -28,6 +28,14 @@ var _questionTest = require('./questionTest.js');
 
 var _questionTest2 = _interopRequireDefault(_questionTest);
 
+var _userList = require('../containers/userList');
+
+var _userList2 = _interopRequireDefault(_userList);
+
+var _selectedUser = require('../containers/selectedUser');
+
+var _selectedUser2 = _interopRequireDefault(_selectedUser);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -35,6 +43,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+//import Clock from '../containers/clock.js';
+
 
 var Root = function (_Component) {
 	_inherits(Root, _Component);
@@ -110,7 +120,41 @@ var Initial = function (_Component2) {
 				'div',
 				null,
 				'Hello',
-				_react2.default.createElement(_clock2.default, null)
+				_react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(
+						'div',
+						null,
+						'Users List'
+					),
+					_react2.default.createElement(_userList2.default, null),
+					_react2.default.createElement('br', null),
+					_react2.default.createElement(
+						'div',
+						null,
+						'Selected User'
+					),
+					_react2.default.createElement(_selectedUser2.default, null)
+				),
+				_react2.default.createElement('br', null),
+				_react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(
+						'div',
+						null,
+						'Users List'
+					),
+					_react2.default.createElement(_userList2.default, null),
+					_react2.default.createElement('br', null),
+					_react2.default.createElement(
+						'div',
+						null,
+						'Selected User'
+					),
+					_react2.default.createElement(_selectedUser2.default, null)
+				)
 			);
 		}
 	}]);
