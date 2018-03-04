@@ -41,7 +41,7 @@ var routes = [],
 
 
 console.log(dir + 'dist');
-server.use('/dist', _express2.default.static("C:/dev/web/ReactApp/dist"));
+server.use('/dist', _express2.default.static("C:/dev/web/ReactApp-typescript/dist"));
 server.use('/build', _express2.default.static('' + dir));
 
 server.get('/', function (req, res) {

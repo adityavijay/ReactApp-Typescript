@@ -10,4 +10,5 @@ class RoutingApplication extends React.Component{
 		return (<HashRouter><App {...this.props}/></HashRouter>);
 	}
 }
-ReactDOM.render(<RoutingApplication/>, document.getElementById('root'));
+
+render(<RoutingApplication/>, document.getElementById('root'));

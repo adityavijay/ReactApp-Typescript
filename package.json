@@ -18,9 +18,13 @@
     "start": "webpack-dev-server --open",
     "build": "webpack",
     "runserver": "node ./build/server/app.js",
-    "webpack": "webpack --progress --watch",
+    
     "buildapp": "babel ./server/*.js ./shared/**/*.js -d build -w",
     "nodemon": "nodemon ./build/server/app.js",
+    "ts": "tsc -w", 
+    
+    "webpack": "webpack --progress --watch",
+
     "test": "jest"
   },
   "devDependencies": {

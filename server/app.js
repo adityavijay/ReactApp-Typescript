@@ -16,7 +16,7 @@
  assets = express.static(dir);
  
  console.log(`${dir}dist`);
- server.use('/dist', express.static("C:/dev/web/ReactApp/dist"));
+ server.use('/dist', express.static("C:/dev/web/ReactApp-typescript/dist"));
  server.use('/build', express.static(`${dir}`));
 
  server.get('/',(req, res)=>{

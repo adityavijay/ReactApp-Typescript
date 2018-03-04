@@ -1,5 +1,7 @@
 import * as React from "react";
+import {render} from "react-dom";
+import {App} from "../shared/index";
+import '../shared/css/global.less';
 
-export interface HelloProps { compiler: string; framework: string; }
 
-export const Hello = (props: HelloProps) => <h1>Hello from {props.compiler} and {props.framework}!</h1>;
+render(<App/>, document.getElementById('root'));

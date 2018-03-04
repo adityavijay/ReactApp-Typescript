@@ -1,4 +1,4 @@
-﻿const path = require('path');
+const path = require('path');
 var BomPlugin = require('webpack-utf8-bom');
 var ManifestPlugin = require('webpack-manifest-plugin');
 var htmlWebpackPlugin = require('html-webpack-plugin');
@@ -27,6 +27,10 @@ module.exports={
 	 stats: {
          colors: true
      },
+      resolve: {
+        // Add '.ts' and '.tsx' as resolvable extensions.
+        extensions: [".ts", ".tsx", ".js", ".json"]
+    },
 	 module:{
 		rules:[
 			{
