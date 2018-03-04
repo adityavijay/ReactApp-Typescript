@@ -21,23 +21,22 @@ class ClickingCount extends React.Component {
     constructor(props) {
         super(props);
         this.state = { clickedNumber: 0 };
-        this.ele = document.createElement('div');
         this.handleClick = this.handleClick.bind(this);
-    }
-    componentDidMount() {
-        trgD.appendChild(this.ele);
     }
     handleClick(e) {
         e.preventDefault(true);
-        var counter;
+        var counter = 1;
         counter += this.state.clickedNumber;
         this.setState((ps) => ({ clickedNumber: counter }));
     }
     render() {
-        ReactDom.createPortal(this.props.children, this.ele);
         return React.createElement("div", { onClick: this.handleClick },
-            "Hello number of click counts",
-            this.state.clickedNumber);
+            React.createElement("div", null,
+                "Hello number of click counts",
+                this.state.clickedNumber),
+            React.createElement("div", null,
+                React.createElement(Model, null,
+                    React.createElement(Child, null))));
     }
 }
 exports.ClickingCount = ClickingCount;

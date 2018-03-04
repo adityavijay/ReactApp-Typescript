@@ -26,29 +26,23 @@ export class Model extends React.Component {
 
 export class ClickingCount extends React.Component<HelloProps,{}> {
     compiler:string; 
-    ele:any;
     state:{clickedNumber:number};
    
     constructor(props:{}){
     	super(props);
     	this.state = {clickedNumber:0};
-    	this.ele = document.createElement('div');
     	this.handleClick = this.handleClick.bind(this);
     }
 
-    componentDidMount(){
-    	trgD.appendChild(this.ele);
-    }
 	
 	handleClick(e:any){
 		e.preventDefault(true);
-		var counter:number;
+		var counter:number=1;
 		counter += this.state.clickedNumber;
 		this.setState((ps:any):any=>({clickedNumber:counter}))
 	}    
     render() {
-    	ReactDom.createPortal(this.props.children, this.ele);
-        return <div onClick={this.handleClick}>Hello number of click counts{this.state.clickedNumber}</div>;
+        return <div onClick={this.handleClick}><div>Hello number of click counts{this.state.clickedNumber}</div><div><Model><Child/></Model></div></div>;
     }
 }
 
