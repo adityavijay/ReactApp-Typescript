@@ -48,9 +48,6 @@ var QuestionTest = function (_Component) {
 						console.log(_this2.refs);e.preventDefault();
 					} },
 				Questions,
-				_react2.default.createElement(ExtraInputs, { ref: function ref(obj) {
-						return obj.handleClick();
-					} }),
 				_react2.default.createElement("input", { type: "submit", value: "Click" })
 			);
 		}
@@ -61,29 +58,6 @@ var QuestionTest = function (_Component) {
 
 exports.default = QuestionTest;
 
-var ExtraInputs = function (_Component2) {
-	_inherits(ExtraInputs, _Component2);
-
-	function ExtraInputs() {
-		_classCallCheck(this, ExtraInputs);
-
-		return _possibleConstructorReturn(this, (ExtraInputs.__proto__ || Object.getPrototypeOf(ExtraInputs)).apply(this, arguments));
-	}
-
-	_createClass(ExtraInputs, [{
-		key: "handleClick",
-		value: function handleClick() {
-			console.log('Hello ref');
-		}
-	}, {
-		key: "render",
-		value: function render() {
-			return _react2.default.createElement("input", { type: "text" });
-		}
-	}]);
-
-	return ExtraInputs;
-}(_react.Component);
 
 function Question(props) {
 	return _react2.default.createElement(
@@ -118,11 +92,26 @@ function RadioInputWithLabel(_ref) {
 	);
 }
 
-/* class student{ fullname:string; constructor(public firstname:string, public middleInitial: string){
-	this.fullname = firstname+""+middleInitial
+var ExtraInputs = function (_Component2) {
+	_inherits(ExtraInputs, _Component2);
 
+	function ExtraInputs() {
+		_classCallCheck(this, ExtraInputs);
 
-	//payment systems coding
-	//Typescript
-	//Memory leaks referencing(closures, unintentional variables, timer). Mark and sweep algorithm
-}} */
+		return _possibleConstructorReturn(this, (ExtraInputs.__proto__ || Object.getPrototypeOf(ExtraInputs)).apply(this, arguments));
+	}
+
+	_createClass(ExtraInputs, [{
+		key: "handleClick",
+		value: function handleClick() {
+			console.log('Hello ref');
+		}
+	}, {
+		key: "render",
+		value: function render() {
+			return _react2.default.createElement("input", { type: "text" });
+		}
+	}]);
+
+	return ExtraInputs;
+}(_react.Component);

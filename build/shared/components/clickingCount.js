@@ -4,19 +4,18 @@ const React = require("react");
 const ReactDom = require("react-dom");
 const srcD = document.getElementById('root');
 const trgD = document.getElementById('portal');
+;
+;
 class Model extends React.Component {
-    constructor(props) {
-        super(props);
-        this.ele = document.createElement('div');
-    }
+    constructor(props) { super(props); }
     componentDidMount() {
-        trgD.appendChild(this.ele);
+        //trgD.appendChild(this.ele);
     }
     render() {
-        return (ReactDom.createPortal(this.props.children, this.ele));
+        const x = React.createElement("div", null, this.props.children);
+        return (ReactDom.createPortal(React.createElement(Child, null), trgD));
     }
 }
-exports.Model = Model;
 class ClickingCount extends React.Component {
     constructor(props) {
         super(props);
@@ -33,19 +32,34 @@ class ClickingCount extends React.Component {
         return React.createElement("div", { onClick: this.handleClick },
             React.createElement("div", null,
                 "Hello number of click counts",
-                this.state.clickedNumber),
-            React.createElement("div", null,
-                React.createElement(Model, null,
-                    React.createElement(Child, null))));
+                this.state.clickedNumber,
+                " ",
+                React.createElement("div", { onClick: function () { console.log(123); } },
+                    React.createElement(Parent, null,
+                        " ",
+                        React.createElement(Hello, { compiler: "dd" }))),
+                React.createElement("div", null,
+                    React.createElement(Model, null, "Hello"))));
     }
 }
 exports.ClickingCount = ClickingCount;
 const Child = () => React.createElement("div", null,
     React.createElement("button", null, "Click Me"));
-exports.PortalBox = () => React.createElement(ClickingCount, null,
-    React.createElement(Child, null));
+// 'HelloProps' describes the shape of props.
+// State is never set so we use the '{}' type.
+class Hello extends React.Component {
+    render() {
+        return React.createElement("h1", null,
+            "Hello from ",
+            this.props.compiler,
+            " and Aditya !",
+            React.createElement("input", { type: "button" }));
+    }
+}
+exports.Hello = Hello;
+const Parent = (props) => React.createElement("div", null,
+    React.createElement(React.Fragment, null, props.children));
 /*
-
 const Test = (x:string):boolean=>true;
 
 let someValue:[string, string] = ["ad","ee"];

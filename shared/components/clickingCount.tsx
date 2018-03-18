@@ -1,31 +1,27 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
- 
-
-export interface HelloProps { compiler?: string; framework?: string; }
 
 const srcD = document.getElementById('root');
 const trgD = document.getElementById('portal');
 
-export class Model extends React.Component {
-	ele:any;
+export interface HelloProps {compiler?:string;};
+export interface ModelProps {onClick?:number;};
 
-	constructor(props:{}){
-		super(props);
-		this.ele = document.createElement('div');
-	}
+class Model extends React.Component<ModelProps,{}> {
+
+	constructor(props:{}){ super(props); }
 
 	componentDidMount(){
-		trgD.appendChild(this.ele);
+		//trgD.appendChild(this.ele);
 	}
 
 	render(){
-		return(ReactDom.createPortal(this.props.children, this.ele));
+		const x = <div>{this.props.children}</div>;
+		return(ReactDom.createPortal(<Child/>, trgD));
 	}
 }
 
 export class ClickingCount extends React.Component<HelloProps,{}> {
-    compiler:string; 
     state:{clickedNumber:number};
    
     constructor(props:{}){
@@ -42,18 +38,25 @@ export class ClickingCount extends React.Component<HelloProps,{}> {
 		this.setState((ps:any):any=>({clickedNumber:counter}))
 	}    
     render() {
-        return <div onClick={this.handleClick}><div>Hello number of click counts{this.state.clickedNumber}</div><div><Model><Child/></Model></div></div>;
+        return <div onClick={this.handleClick}><div>Hello number of click counts{this.state.clickedNumber} <div onClick={function(){console.log(123);}}><Parent > <Hello compiler={"dd"}/></Parent></div><div><Model>Hello</Model></div></div></div>;
     }
 }
-
 
 const Child = ()=><div><button>Click Me</button></div>;
 
 
-export const PortalBox = ()=><ClickingCount><Child/></ClickingCount>;
+export interface HelloProps1 { compiler: string;}
 
+// 'HelloProps' describes the shape of props.
+// State is never set so we use the '{}' type.
+export class Hello extends React.Component<HelloProps1, {}> {
+    render() {
+        return <h1>Hello from {this.props.compiler} and Aditya !<input type="button"/></h1>;
+    }
+}
+
+const Parent= (props:{children:any;})=><div><React.Fragment>{props.children}</React.Fragment></div>
 /*
-
 const Test = (x:string):boolean=>true;
 
 let someValue:[string, string] = ["ad","ee"];

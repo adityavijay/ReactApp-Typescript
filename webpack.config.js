@@ -7,10 +7,12 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 //C:\Repositories\dev\node_modules\.bin\webpack --config webpack.config.js --watch
 //C:\dev\web\ReactApp\node_modules\.bin\webpack --config webpack.config.js --watch
 module.exports={
-	entry:'./client/client.tsx',
+	entry:'./client/client.js',
 	output:{filename:'bundle.js',path: path.resolve(__dirname,'dist')},
+	
 	devServer: {
      	contentBase: './dist'
+     	//historyApiFallback: true
     },	
   
 	devtool: 'inline-source-map',

@@ -24,7 +24,7 @@ exports.default = function (props) {
 																null,
 																_react2.default.createElement(
 																				_reactRouterDom.NavLink,
-																				{ to: '/' },
+																				{ exact: true, activeClassName: 'activeLink', to: '/' },
 																				'Home'
 																)
 												),
@@ -33,7 +33,7 @@ exports.default = function (props) {
 																null,
 																_react2.default.createElement(
 																				_reactRouterDom.NavLink,
-																				{ to: '/aboutUs' },
+																				{ activeClassName: 'activeLink', to: '/aboutUs' },
 																				'AboutUs'
 																)
 												),
@@ -42,7 +42,7 @@ exports.default = function (props) {
 																null,
 																_react2.default.createElement(
 																				_reactRouterDom.NavLink,
-																				{ to: '/location' },
+																				{ activeClassName: 'activeLink', to: '/location' },
 																				'OfficeLocation'
 																)
 												),
@@ -51,7 +51,7 @@ exports.default = function (props) {
 																null,
 																_react2.default.createElement(
 																				_reactRouterDom.NavLink,
-																				{ to: '/questions' },
+																				{ activeClassName: 'activeLink', to: '/questions' },
 																				'Questions'
 																)
 												)

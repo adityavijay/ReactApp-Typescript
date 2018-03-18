@@ -8,6 +8,7 @@ export default class QuestionTest extends Component{
 		super(props);
 	}
 
+
 	render(){
 		const ad = this.refs;
 		const Questions =  questionObject.map((question, key)=>{
@@ -16,19 +17,10 @@ export default class QuestionTest extends Component{
 		});
 
 		return (<form onSubmit={(e)=>{console.log(this.refs); e.preventDefault();}}>
-			{Questions}<ExtraInputs ref={(obj)=>obj.handleClick()}/><input type="submit" value="Click"/>
+			{Questions}<input type="submit" value="Click"/>
 		</form>);
 	}
 }
-
-class ExtraInputs extends Component{     handleClick(){
-console.log('Hello ref');     }
-
-	render(){
-		return (<input type="text"/>);
-	}
-}
-
 
 function Question(props){
 	return (<ul style={props.style}>
@@ -48,11 +40,14 @@ function RadioInputWithLabel({id, nameId, option}){
 			</li>);
 }
 
-/* class student{ fullname:string; constructor(public firstname:string, public middleInitial: string){
-	this.fullname = firstname+""+middleInitial
 
+class ExtraInputs extends Component{ 
+	handleClick(){
+		console.log('Hello ref');	    
+	 }
 
-	//payment systems coding
-	//Typescript
-	//Memory leaks referencing(closures, unintentional variables, timer). Mark and sweep algorithm
-}} */
+	render(){
+		return(<input type="text"/>);
+	}
+}
+
