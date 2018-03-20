@@ -44,6 +44,10 @@ console.log(dir + 'dist');
 server.use('/dist', _express2.default.static("C:/dev/web/ReactApp-typescript/dist"));
 server.use('/build', _express2.default.static('' + dir));
 
+server.get('/aditya', function (req, res) {
+  return res.send('Hello Test');
+});
+
 server.get('/', function (req, res) {
 
   var context = {},

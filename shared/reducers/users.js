@@ -9,4 +9,4 @@
 	{Firstname: "Hello James",
 	Surname: "Richings"
 	}];
-}
+};

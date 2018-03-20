@@ -8,6 +8,7 @@ import Store from '../store.js';
 import QuestionTest from './questionTest.js';
 import UserList from '../containers/userList';
 import SelectedUser from '../containers/selectedUser';
+import axios from 'axios';
 
 export default class Root extends Component{	
 render(){	
@@ -34,51 +35,13 @@ render(){
 		}
 }	
 
-class TestWithRouter extends Component{
-	componentDidMount(){
-		console.log('TestWithRouter Mounted');
-	}
-	
-	componentWillReceiveProps(){
-		console.log('TestWithRouter receiving Props');
-	}
-	componentWillUpdate(){
-		console.log('TestWithRouter will update');
-	}
-
-	render(){
-		return <div>You are at {this.props.location.pathname}</div>
-	}
-
-	componentWillUnmount(){
-		console.log('TestWithRouter unMounted')
-	}
-}
-
-class TextComp extends Component{
-	componentDidMount(){
-		console.log('TextComp Mounted');
-	}
-	
-	componentWillReceiveProps(x,y){
-		console.log('TextComp receiving Props');
-	}
-	componentWillUpdate(){
-		console.log('TestComp will update');
-	}
-
-	render(){
-		return <div>TextComp</div>
-	}
-	componentWillUnmount(){
-		console.log('TextComp unMounted');
-	}
-}
-
-const ShowLocation = withRouter(TestWithRouter);
-
 
 class Initial extends Component{
+	componentDidMount(){
+		axios.get('/aditya').
+					then((x)=>console.log(x)).
+					catch(()=>console.log('error'));
+	}
 	render(){
 		return (<div>Hello
 				<div>
@@ -96,14 +59,35 @@ class Initial extends Component{
 					<div>Selected User</div>
 					<SelectedUser/>
 				</div>
+				<input type="button" onClick={
+					()=>{
+					axios.get('/aditya').
+					then((x)=>console.log(x)).
+					catch(()=>console.log('error'))}
+				} />
 			</div>);
 	}
 }
 
 
- class Payments extends Component{
+ //Redux Thunk Middleware
+ export function itemsFetchData(url) {
+    return (dispatch) => {
+        dispatch(itemsIsLoading(true));
+        axios.get(url)
+            .then((response) => {
+                if (!response.ok) {
+                    throw Error(response.statusText);
+                }
+                dispatch(itemsIsLoading(false));
+                return response;
+            })
+            .then((response) => response.json())
+            .then((items) => dispatch(itemsFetchDataSuccess(items)))
+            .catch(() => dispatch(itemsHasErrored(true)));
+    };
+}
 
- }
 
  class ErrorBoundary extends Component{
  	constructor(props){super(props); this.state={hasError:false}}

@@ -6,6 +6,8 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+exports.itemsFetchData = itemsFetchData;
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -39,6 +41,10 @@ var _userList2 = _interopRequireDefault(_userList);
 var _selectedUser = require('../containers/selectedUser');
 
 var _selectedUser2 = _interopRequireDefault(_selectedUser);
+
+var _axios = require('axios');
+
+var _axios2 = _interopRequireDefault(_axios);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -123,97 +129,8 @@ var Root = function (_Component) {
 
 exports.default = Root;
 
-var TestWithRouter = function (_Component2) {
-	_inherits(TestWithRouter, _Component2);
-
-	function TestWithRouter() {
-		_classCallCheck(this, TestWithRouter);
-
-		return _possibleConstructorReturn(this, (TestWithRouter.__proto__ || Object.getPrototypeOf(TestWithRouter)).apply(this, arguments));
-	}
-
-	_createClass(TestWithRouter, [{
-		key: 'componentDidMount',
-		value: function componentDidMount() {
-			console.log('TestWithRouter Mounted');
-		}
-	}, {
-		key: 'componentWillReceiveProps',
-		value: function componentWillReceiveProps() {
-			console.log('TestWithRouter receiving Props');
-		}
-	}, {
-		key: 'componentWillUpdate',
-		value: function componentWillUpdate() {
-			console.log('TestWithRouter will update');
-		}
-	}, {
-		key: 'render',
-		value: function render() {
-			return _react2.default.createElement(
-				'div',
-				null,
-				'You are at ',
-				this.props.location.pathname
-			);
-		}
-	}, {
-		key: 'componentWillUnmount',
-		value: function componentWillUnmount() {
-			console.log('TestWithRouter unMounted');
-		}
-	}]);
-
-	return TestWithRouter;
-}(_react.Component);
-
-var TextComp = function (_Component3) {
-	_inherits(TextComp, _Component3);
-
-	function TextComp() {
-		_classCallCheck(this, TextComp);
-
-		return _possibleConstructorReturn(this, (TextComp.__proto__ || Object.getPrototypeOf(TextComp)).apply(this, arguments));
-	}
-
-	_createClass(TextComp, [{
-		key: 'componentDidMount',
-		value: function componentDidMount() {
-			console.log('TextComp Mounted');
-		}
-	}, {
-		key: 'componentWillReceiveProps',
-		value: function componentWillReceiveProps(x, y) {
-			console.log('TextComp receiving Props');
-		}
-	}, {
-		key: 'componentWillUpdate',
-		value: function componentWillUpdate() {
-			console.log('TestComp will update');
-		}
-	}, {
-		key: 'render',
-		value: function render() {
-			return _react2.default.createElement(
-				'div',
-				null,
-				'TextComp'
-			);
-		}
-	}, {
-		key: 'componentWillUnmount',
-		value: function componentWillUnmount() {
-			console.log('TextComp unMounted');
-		}
-	}]);
-
-	return TextComp;
-}(_react.Component);
-
-var ShowLocation = (0, _reactRouter.withRouter)(TestWithRouter);
-
-var Initial = function (_Component4) {
-	_inherits(Initial, _Component4);
+var Initial = function (_Component2) {
+	_inherits(Initial, _Component2);
 
 	function Initial() {
 		_classCallCheck(this, Initial);
@@ -222,6 +139,15 @@ var Initial = function (_Component4) {
 	}
 
 	_createClass(Initial, [{
+		key: 'componentDidMount',
+		value: function componentDidMount() {
+			_axios2.default.get('/aditya').then(function (x) {
+				return console.log(x);
+			}).catch(function () {
+				return console.log('error');
+			});
+		}
+	}, {
 		key: 'render',
 		value: function render() {
 			return _react2.default.createElement(
@@ -262,7 +188,14 @@ var Initial = function (_Component4) {
 						'Selected User'
 					),
 					_react2.default.createElement(_selectedUser2.default, null)
-				)
+				),
+				_react2.default.createElement('input', { type: 'button', onClick: function onClick() {
+						_axios2.default.get('/aditya').then(function (x) {
+							return console.log(x);
+						}).catch(function () {
+							return console.log('error');
+						});
+					} })
 			);
 		}
 	}]);
@@ -270,27 +203,37 @@ var Initial = function (_Component4) {
 	return Initial;
 }(_react.Component);
 
-var Payments = function (_Component5) {
-	_inherits(Payments, _Component5);
+//Redux Thunk Middleware
 
-	function Payments() {
-		_classCallCheck(this, Payments);
 
-		return _possibleConstructorReturn(this, (Payments.__proto__ || Object.getPrototypeOf(Payments)).apply(this, arguments));
-	}
+function itemsFetchData(url) {
+	return function (dispatch) {
+		dispatch(itemsIsLoading(true));
+		_axios2.default.get(url).then(function (response) {
+			if (!response.ok) {
+				throw Error(response.statusText);
+			}
+			dispatch(itemsIsLoading(false));
+			return response;
+		}).then(function (response) {
+			return response.json();
+		}).then(function (items) {
+			return dispatch(itemsFetchDataSuccess(items));
+		}).catch(function () {
+			return dispatch(itemsHasErrored(true));
+		});
+	};
+}
 
-	return Payments;
-}(_react.Component);
-
-var ErrorBoundary = function (_Component6) {
-	_inherits(ErrorBoundary, _Component6);
+var ErrorBoundary = function (_Component3) {
+	_inherits(ErrorBoundary, _Component3);
 
 	function ErrorBoundary(props) {
 		_classCallCheck(this, ErrorBoundary);
 
-		var _this6 = _possibleConstructorReturn(this, (ErrorBoundary.__proto__ || Object.getPrototypeOf(ErrorBoundary)).call(this, props));
+		var _this3 = _possibleConstructorReturn(this, (ErrorBoundary.__proto__ || Object.getPrototypeOf(ErrorBoundary)).call(this, props));
 
-		_this6.state = { hasError: false };return _this6;
+		_this3.state = { hasError: false };return _this3;
 	}
 
 	_createClass(ErrorBoundary, [{
