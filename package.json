@@ -25,6 +25,9 @@
     "test": "jest",
     "tst": "dir ; npm run webpack"
   },
+
+
+  
   "devDependencies": {
     "awesome-typescript-loader": "^3.5.0",
     "babel-cli": "^6.26.0",
