@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+<a
+  href="#"
+  id="link"
+>
+  <span>
+    Hello
+  </span>
+   Aditya
+</a>
+`;
