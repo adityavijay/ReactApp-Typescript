@@ -1,7 +1,8 @@
 import * as React from "react";
-import {render} from "react-dom";
-import {App} from "../shared/index";
+import * as ReactDom from "react-dom";
+import {App, hello, fg} from "../shared/index";
 import '../shared/css/global.less';
+console.log(fg.y);
+ReactDom.render(<App/>, document.getElementById('root'));
 
-
-render(<App/>, document.getElementById('root'));
+//intrinsic elements or custom components

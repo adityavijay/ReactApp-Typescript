@@ -24,8 +24,6 @@ var _home2 = _interopRequireDefault(_home);
 
 var _clock = require('./clock.js');
 
-var _clock2 = _interopRequireDefault(_clock);
-
 var _store = require('../store.js');
 
 var _store2 = _interopRequireDefault(_store);
@@ -153,42 +151,6 @@ var Initial = function (_Component2) {
 			return _react2.default.createElement(
 				'div',
 				null,
-				'Hello',
-				_react2.default.createElement(
-					'div',
-					null,
-					_react2.default.createElement(
-						'div',
-						null,
-						'Users List'
-					),
-					_react2.default.createElement(_userList2.default, null),
-					_react2.default.createElement('br', null),
-					_react2.default.createElement(
-						'div',
-						null,
-						'Selected User'
-					),
-					_react2.default.createElement(_selectedUser2.default, null)
-				),
-				_react2.default.createElement('br', null),
-				_react2.default.createElement(
-					'div',
-					null,
-					_react2.default.createElement(
-						'div',
-						null,
-						'Users List'
-					),
-					_react2.default.createElement(_userList2.default, null),
-					_react2.default.createElement('br', null),
-					_react2.default.createElement(
-						'div',
-						null,
-						'Selected User'
-					),
-					_react2.default.createElement(_selectedUser2.default, null)
-				),
 				_react2.default.createElement('input', { type: 'button', onClick: function onClick() {
 						_axios2.default.get('/aditya').then(function (x) {
 							return console.log(x);

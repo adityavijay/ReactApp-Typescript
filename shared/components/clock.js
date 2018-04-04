@@ -1,8 +1,10 @@
 import React,{Component, PureComponent} from 'react';
 
 //import TestRenderer from 'react-test-renderer';
+const v=45;
+export default {X:()=><div>Default</div>,v};
 
-export default class Clock extends Component{
+export class Clock extends Component{
 	constructor(props){
 		super(props);
 		this.state={currentTime: new Date()};

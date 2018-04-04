@@ -1,4 +1,4 @@
-﻿export default function(){
+﻿export default function(state, action){
 	return [{
 		Firstname: "John",
 		Surname: "smith"

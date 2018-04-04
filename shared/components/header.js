@@ -8,4 +8,3 @@ export default (props)=><div {...props}>
 				<li><NavLink activeClassName="activeLink" to="/questions">Questions</NavLink></li>
 				</ul>				
 			</div>;
- 

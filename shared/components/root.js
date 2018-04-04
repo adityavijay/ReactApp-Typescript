@@ -3,7 +3,7 @@ import ReactDom from 'react-dom';
 import {Route, Link, Switch, Redirect, IndexRoute, withRouter} from 'react-router';
 import Home from './home.js';
 //import Clock from '../containers/clock.js';
-import Clock from './clock.js';
+import {Clock} from './clock.js';
 import Store from '../store.js';
 import QuestionTest from './questionTest.js';
 import UserList from '../containers/userList';
@@ -43,22 +43,7 @@ class Initial extends Component{
 					catch(()=>console.log('error'));
 	}
 	render(){
-		return (<div>Hello
-				<div>
-				    <div>Users List</div>
-					<UserList/>
-					<br/>
-					<div>Selected User</div>
-					<SelectedUser/>
-				</div>
-				<br/>
-				<div>
-				    <div>Users List</div>
-					<UserList/>
-					<br/>
-					<div>Selected User</div>
-					<SelectedUser/>
-				</div>
+		return (<div>
 				<input type="button" onClick={
 					()=>{
 					axios.get('/aditya').

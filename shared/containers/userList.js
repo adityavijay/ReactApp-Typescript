@@ -2,14 +2,16 @@
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {setActive} from '../actions/actions';
+import {store} from '../store.js';
+
 class UserList extends Component{	
 	createListItems(){
 		return this.props.users.map((user,i)=>{
 			return (<li key={i} onClick= {()=>{
-			
-
-				this.props.onSelectClick(
-					user)
+				//this.props.dispatch(setActive(user))
+				//this.props.onSelectClick(user);
+				store.dispatch(setActive(user));
+				//console.log(this.props.store);
 			}}>
 			{user.Firstname}</li>);
 		});

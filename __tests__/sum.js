@@ -13,7 +13,7 @@ describe("Test1",()=>{
 	});
 })*/
 
-import sum from '../sum';
+var sum= (a,b)=>a+b;
 describe("Test1",()=>{
 	it("should equal to 4", ()=>{
 		expect(sum(2,1)).toBe(3);

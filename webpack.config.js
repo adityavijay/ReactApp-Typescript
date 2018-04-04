@@ -7,7 +7,7 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 //C:\Repositories\dev\node_modules\.bin\webpack --config webpack.config.js --watch
 //C:\dev\web\ReactApp\node_modules\.bin\webpack --config webpack.config.js --watch
 module.exports={
-	entry:'./client/client.js',
+	entry:'./client/client.tsx',
 	output:{filename:'bundle.js',path: path.resolve(__dirname,'dist')},
 	
 	devServer: {

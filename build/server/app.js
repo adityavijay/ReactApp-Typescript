@@ -37,11 +37,11 @@ var routes = [],
     server = (0, _express2.default)(),
     dir = _path2.default.join(__dirname, '../../'),
     assets = _express2.default.static(dir);
+//server.use('/dist', express.static(path.join(__dirname,'../../../dist')));
+
 //import App from './index.js';
-
-
 console.log(dir + 'dist');
-server.use('/dist', _express2.default.static("C:/dev/web/ReactApp-typescript/dist"));
+server.use('/dist', _express2.default.static("D:/dev/React-typescript/dist"));
 server.use('/build', _express2.default.static('' + dir));
 
 server.get('/aditya', function (req, res) {

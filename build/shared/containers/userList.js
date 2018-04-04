@@ -16,6 +16,8 @@ var _reactRedux = require('react-redux');
 
 var _actions = require('../actions/actions');
 
+var _store = require('../store.js');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -36,14 +38,14 @@ var UserList = function (_Component) {
 	_createClass(UserList, [{
 		key: 'createListItems',
 		value: function createListItems() {
-			var _this2 = this;
-
 			return this.props.users.map(function (user, i) {
 				return _react2.default.createElement(
 					'li',
 					{ key: i, onClick: function onClick() {
-
-							_this2.props.onSelectClick(user);
+							//this.props.dispatch(setActive(user))
+							//this.props.onSelectClick(user);
+							_store.store.dispatch((0, _actions.setActive)(user));
+							//console.log(this.props.store);
 						} },
 					user.Firstname
 				);

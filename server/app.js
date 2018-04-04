@@ -14,9 +14,9 @@
  server= express(),	
  dir = path.join(__dirname,'../../'),
  assets = express.static(dir);
- 
+ //server.use('/dist', express.static(path.join(__dirname,'../../../dist')));
  console.log(`${dir}dist`);
- server.use('/dist', express.static("C:/dev/web/ReactApp-typescript/dist"));
+ server.use('/dist', express.static("D:/dev/React-typescript/dist"));
  server.use('/build', express.static(`${dir}`));
  
  server.get('/aditya',(req,res)=>res.send('Hello Test'));
