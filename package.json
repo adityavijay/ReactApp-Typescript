@@ -26,8 +26,6 @@
     "tst": "dir ; npm run webpack"
   },
 
-
-
   "devDependencies": 
   {
     "awesome-typescript-loader": "^3.5.0",
