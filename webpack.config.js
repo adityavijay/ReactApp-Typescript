@@ -1,4 +1,5 @@
 const path = require('path');
+var webpack = require('webpack');
 var BomPlugin = require('webpack-utf8-bom');
 var ManifestPlugin = require('webpack-manifest-plugin');
 var htmlWebpackPlugin = require('html-webpack-plugin');
@@ -6,9 +7,11 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 //C:\Repositories\dev\node_modules\.bin\webpack --config webpack.config.js --watch
 //C:\dev\web\ReactApp\node_modules\.bin\webpack --config webpack.config.js --watch
+console.log(process.env.Node_Env);
 module.exports={
-	entry:'./client/client.tsx',
-	output:{filename:'bundle.js',path: path.resolve(__dirname,'dist')},
+	entry:'./client/client.js',
+	output:{filename:'bundle.js',path: path.resolve(__dirname,'dist'),
+	},
 	
 	devServer: {
      	contentBase: './dist'
@@ -16,6 +19,15 @@ module.exports={
     },	
   
 	devtool: 'inline-source-map',
+	devServer: {
+	//	contentBase: path.join(__dirname, "dist"),
+		compress: true,
+		port: 3006,
+		clientLogLevel: "none",
+		historyApiFallback: true,
+		watchContentBase: true,
+		hot: true
+	},
 	plugins: 
 		[   
 			new BomPlugin(true),
@@ -23,17 +35,22 @@ module.exports={
 			new htmlWebpackPlugin({
 				template: 'index.htm'
 			}),
-			new CleanWebpackPlugin(['dist']),
+			//new CleanWebpackPlugin(['dist']),
+			//new webpack.HotModuleReplacementPlugin({}),
 			//new UglifyJSPlugin()
-		],
-	 stats: {
+			new webpack.DefinePlugin({
+				env: JSON.stringify(process.env.Node_Env)
+			}),
+			new webpack.NamedModulesPlugin()
+],
+	stats: {
          colors: true
      },
-      resolve: {
+  resolve: {
         // Add '.ts' and '.tsx' as resolvable extensions.
         extensions: [".ts", ".tsx", ".js", ".json"]
     },
-	 module:{
+	module:{
 		rules:[
 			{
 				test: /\.css$/,

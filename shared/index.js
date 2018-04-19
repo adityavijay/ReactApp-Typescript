@@ -41,6 +41,6 @@ export default function(){
 	
 } */
 import React from 'react';
-import Root from './components/root.js';
+import {Root} from './components/root.js';
 
 export default ()=><Root/>;

@@ -1,4 +1,5 @@
 ﻿const circle = require('./circle.js'),
+defaultVal = require('./circle.js').default,
 square = require('./square.js');
 const querystring = require('querystring');
 const env = require('dotenv').config({ path: '.env.local' });
@@ -14,14 +15,10 @@ console.log(circle.testModule());
 console.log(`the area of square is ${square(4).area()}`);
 
 console.log(circle.default());
-
-var t = function(){return this.y};
-
-const obj = {x:45,y:67};
-
-const s = t.bind(obj);
-console.log("bind output "+s());
-
+console.log(defaultVal());
 //process.env.bar=45;
-console.log(process.env.PUBLIC_URL);
+
+
+console.log(process.env.fg);
+console.log(JSON.stringify({x:23}));
  

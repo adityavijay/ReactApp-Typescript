@@ -3,6 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
+exports.Root = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -56,7 +57,40 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 //import Clock from '../containers/clock.js';
 
 
-var Root = function (_Component) {
+var TestY = function TestY(props) {
+	return _react2.default.createElement(
+		'div',
+		null,
+		'Testing ',
+		props.hello
+	);
+};
+var TestX = function TestX(props) {
+	return _react2.default.createElement(
+		'div',
+		null,
+		'Not Testing ',
+		props.hello
+	);
+};
+/*
+const HOC = (Wrapped)=>{
+	return class A extends Component{
+		render(){
+			return <Wrapped {...this.props}></Wrapped>
+		}
+	}
+}*/
+
+var HOC = function HOC(Wrapped) {
+	return function A(props) {
+		return _react2.default.createElement(Wrapped, props);
+	};
+};
+var Enhanced1 = HOC(TestY);
+var Enhanced2 = HOC(TestX);
+
+var Root = exports.Root = function (_Component) {
 	_inherits(Root, _Component);
 
 	function Root() {
@@ -74,49 +108,55 @@ var Root = function (_Component) {
 				_react2.default.createElement(
 					_store2.default,
 					null,
-					_react2.default.createElement(_reactRouter.Route, { path: '/', render: function render(_ref) {
-							var match = _ref.match,
-							    location = _ref.location,
-							    rest = _objectWithoutProperties(_ref, ['match', 'location']);
+					_react2.default.createElement(
+						'div',
+						null,
+						_react2.default.createElement(Enhanced1, { hello: 'your code', aditya: 'dd' }),
+						_react2.default.createElement(Enhanced2, { hello: 'your code', aditya: 'dd' }),
+						_react2.default.createElement(_reactRouter.Route, { path: '/', render: function render(_ref) {
+								var match = _ref.match,
+								    location = _ref.location,
+								    rest = _objectWithoutProperties(_ref, ['match', 'location']);
 
-							return _react2.default.createElement(
-								_home2.default,
-								null,
-								_react2.default.createElement(_reactRouter.Route, { exact: true, path: '/', component: Initial }),
-								_react2.default.createElement(_reactRouter.Route, { path: '/aboutUs/', render: function render(_ref2) {
-										var match = _ref2.match,
-										    location = _ref2.location,
-										    history = _ref2.history;
+								return _react2.default.createElement(
+									_home2.default,
+									null,
+									_react2.default.createElement(_reactRouter.Route, { exact: true, title: 'HelloAditya', path: '/', component: Initial }),
+									_react2.default.createElement(_reactRouter.Route, { path: '/aboutUs/', render: function render(_ref2) {
+											var match = _ref2.match,
+											    location = _ref2.location,
+											    history = _ref2.history;
 
-										var loc = { key: 'ac3df4', pathname: '/questions', hash: '#howdy', state: { x: true } };
-										history.push(loc);
-										return _react2.default.createElement(
-											'div',
-											null,
-											'aboutus-',
-											match.params.id
-										);
-									} }),
-								_react2.default.createElement(_reactRouter.Route, { path: '/location', children: function children(_ref3) {
-										var match = _ref3.match,
-										    rest = _objectWithoutProperties(_ref3, ['match']);
+											var loc = { key: 'ac3df4', pathname: '/questions', hash: '#howdy', state: { x: true } };
+											history.push(loc);
+											return _react2.default.createElement(
+												'div',
+												null,
+												'aboutus-',
+												match.params.id
+											);
+										} }),
+									_react2.default.createElement(_reactRouter.Route, { path: '/location', children: function children(_ref3) {
+											var match = _ref3.match,
+											    rest = _objectWithoutProperties(_ref3, ['match']);
 
-										return _react2.default.createElement(
-											'div',
-											{ className: match ? 'active' : '' },
-											'This is the location'
-										);
-									} }),
-								_react2.default.createElement(_reactRouter.Route, { path: '/redirect', render: function render() {
-										return _react2.default.createElement(
-											'div',
-											null,
-											' Redirected '
-										);
-									} }),
-								_react2.default.createElement(_reactRouter.Route, { path: '/questions', component: _questionTest2.default })
-							);
-						} })
+											return _react2.default.createElement(
+												'div',
+												{ className: match ? 'active' : '' },
+												'This is the location'
+											);
+										} }),
+									_react2.default.createElement(_reactRouter.Route, { path: '/redirect', render: function render() {
+											return _react2.default.createElement(
+												'div',
+												null,
+												' Redirected '
+											);
+										} }),
+									_react2.default.createElement(_reactRouter.Route, { path: '/questions', component: _questionTest2.default })
+								);
+							} })
+					)
 				)
 			);
 		}
@@ -124,8 +164,6 @@ var Root = function (_Component) {
 
 	return Root;
 }(_react.Component);
-
-exports.default = Root;
 
 var Initial = function (_Component2) {
 	_inherits(Initial, _Component2);
@@ -151,6 +189,12 @@ var Initial = function (_Component2) {
 			return _react2.default.createElement(
 				'div',
 				null,
+				_react2.default.createElement(
+					'p',
+					null,
+					this.props.title,
+					' Hi'
+				),
 				_react2.default.createElement('input', { type: 'button', onClick: function onClick() {
 						_axios2.default.get('/aditya').then(function (x) {
 							return console.log(x);
@@ -165,9 +209,9 @@ var Initial = function (_Component2) {
 	return Initial;
 }(_react.Component);
 
+Initial.dis;
+
 //Redux Thunk Middleware
-
-
 function itemsFetchData(url) {
 	return function (dispatch) {
 		dispatch(itemsIsLoading(true));

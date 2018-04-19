@@ -15,20 +15,20 @@
     "env": {}
   },
   "scripts": {
-    "start": "webpack-dev-server --open",
+    "start": "webpack-dev-server",
     "build": "webpack",
     "runserver": "node ./build/server/app.js",
     "buildapp": "babel ./server/*.js ./shared/**/*.js -d build -w",
     "nodemon": "nodemon ./build/server/app.js",
     "ts": "tsc -w",
-    "webpack": "webpack --progress --watch",
+    "webpack-dev": "cross-env Node_Env=development webpack --progress --watch",
+    "webpack-prod": "cross-env Node_Env=production webpack --progress --watch",
     "test": "jest",
-    "tst": "dir ; npm run webpack"
+    "tst": "dir ; npm run webpack",
+    "env": "cross-env URL=adityavijay node C:/dev/My/ReactApp-Typescript/nodeProj/entry.js"
   },
-
-  "devDependencies": 
-  {
-    "awesome-typescript-loader": "^3.5.1",
+  "devDependencies": {
+    "awesome-typescript-loader": "^5.0.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-jest": "^20.0.3",
@@ -41,6 +41,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "clean-webpack-plugin": "^0.1.16",
     "cors": "^2.8.4",
+    "cross-env": "^5.1.4",
     "css-loader": "^0.28.7",
     "csv-loader": "^2.1.1",
     "enzyme": "^3.3.0",
@@ -61,7 +62,7 @@
     "redux": "^3.7.2",
     "source-map-loader": "^0.2.3",
     "style-loader": "^0.18.2",
-    "typescript": "^2.7.2",
+    "typescript": "^2.8.1",
     "uglifyjs-webpack-plugin": "^0.4.6",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.7.1",
@@ -75,7 +76,6 @@
     "@types/react-dom": "^16.0.4",
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
-    "cross-env": "^5.1.4",
     "dotenv": "^5.0.1",
     "express": "^4.16.2",
     "react": "^16.2.0",

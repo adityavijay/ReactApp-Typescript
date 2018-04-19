@@ -1,42 +1,27 @@
 ﻿ import React, {Component, PureComponent} from 'react';
  import ReactDOM, {render, hydrate} from 'react-dom';
  import App from '../shared/index.js';
- import {BrowserRouter as Router, browserHistory, HashRouter} from 'react-router-dom';
+ import {BrowserRouter as Router, browserHistory, HashRouter,Route,withRouter} from 'react-router-dom';
  import d from '../shared/css/global.less';
- 
+
+ console.log(333);
+ export const Child1=()=><div>Child1</div>
+ export const Child=(props)=><div>{[ props.children,props.ad.x]}<ul style={{display:"flex"}}>{[<li className="col" key="1">123</li>,<li className="col" key="2">456</li>,<li className="col" key="3">789</li>]}</ul></div>
+ const LocationTest= ({location})=>{
+ 	return <div>This is {location.pathname}</div>
+}
+const LocationWith = withRouter(LocationTest);
+
+ if(env == 'development')
+	console.log('dev');
+else if (env == 'production')
+	console.log('prod');
 
 class RoutingApplication extends React.Component{
 	render(){
-		return (<HashRouter><App {...this.props}/></HashRouter>);
+		return (<Router><div><App/></div></Router>);
 	}
 }
-
-class S extends PureComponent{
-	componentWillUpdate(s,p){
-		console.log("S is updating")
-	}
-	render(){
-		return <label htmlFor="but">Button</label>
-	}
-}
-
-
-class R extends Component{
-	constructor(props){
-		super(props);
-		this.state={x:20};
-	}
-	componentWillUpdate(s,p){
-		console.log("R is updating")
-	}
-	render(){
-		return <form><S/><input id="but" type="text" onClick={()=>this.setState({y:50})}/></form>
-	}
-}
-
-
-
-
-
-render(<RoutingApplication/>, document.getElementById('root'));
+ 
+render(<RoutingApplication>asdfgjh</RoutingApplication>, document.getElementById('root'));
 

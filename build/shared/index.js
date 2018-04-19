@@ -10,8 +10,6 @@ var _react2 = _interopRequireDefault(_react);
 
 var _root = require('./components/root.js');
 
-var _root2 = _interopRequireDefault(_root);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /*import React from 'react';
@@ -55,5 +53,5 @@ Frag = <div>
 
 } */
 exports.default = function () {
-	return _react2.default.createElement(_root2.default, null);
+	return _react2.default.createElement(_root.Root, null);
 };

@@ -41,7 +41,7 @@ var routes = [],
 
 //import App from './index.js';
 console.log(dir + 'dist');
-server.use('/dist', _express2.default.static("D:/dev/React-typescript/dist"));
+server.use('/dist', _express2.default.static("C:/dev/My/ReactApp-Typescript/dist"));
 server.use('/build', _express2.default.static('' + dir));
 
 server.get('/aditya', function (req, res) {
@@ -74,8 +74,8 @@ server.get('/', function (req, res) {
     }));
   }
 });
-server.listen(3001, function () {
-  return console.log('app listening at port 3001');
+server.listen(3005, function () {
+  return console.log('app listening at port 3005');
 });
 
 //c:\Repositories\dev\build\dist

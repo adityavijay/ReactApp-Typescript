@@ -16,7 +16,7 @@
  assets = express.static(dir);
  //server.use('/dist', express.static(path.join(__dirname,'../../../dist')));
  console.log(`${dir}dist`);
- server.use('/dist', express.static("D:/dev/React-typescript/dist"));
+ server.use('/dist', express.static("C:/dev/My/ReactApp-Typescript/dist"));
  server.use('/build', express.static(`${dir}`));
  
  server.get('/aditya',(req,res)=>res.send('Hello Test'));
@@ -47,6 +47,6 @@
 	    
 	  }
 });
-server.listen(3001, ()=>console.log('app listening at port 3001'));
+server.listen(3005, ()=>console.log('app listening at port 3005'));
  
  //c:\Repositories\dev\build\dist

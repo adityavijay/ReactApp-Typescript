@@ -7,3 +7,5 @@ module.exports.testModule = function(){
 exports.default = function(){
 	return 345;
 };
+
+process.env["fg"]=123;
